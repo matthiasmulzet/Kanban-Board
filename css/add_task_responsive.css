@@ -127,16 +127,6 @@
     .clicked-addtask-window {
         z-index: 201;
     }
-
-    @keyframes fadeIn {
-        from {
-            bottom: -20%;
-        }
-
-        to {
-            bottom: 15%;
-        }
-    }
 }
 
 

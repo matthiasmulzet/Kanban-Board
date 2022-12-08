@@ -24,10 +24,10 @@ async function includeHTML() {
 function showLogOut() {
     let logOut = document.getElementById('log-out');
     if (logOut.classList.contains('d-none')) {
-        logOut.style.animation = 'fadeIn 0.5s ease-in-out';
+        logOut.style.animation = 'fadeInLogOut 0.5s ease-in-out';
         logOut.classList.remove('d-none');
     } else {
-        logOut.style.animation = 'fadeOut 0.5s ease-out';
+        logOut.style.animation = 'fadeOutLogOut 0.5s ease-out';
         setTimeout(() => {
             logOut.classList.add('d-none');
         }, 400);

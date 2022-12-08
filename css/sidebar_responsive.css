@@ -17,31 +17,6 @@
         top: 80px;
         transform: translate(-50px);
     }
-
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateX(200px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(-50px);
-        }
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: translateX(-50px);
-        }
-
-        to {
-            opacity: 0;
-            transform: translateX(200px);
-        }
-    }
 }
 
 @media(max-width: 770px) {
@@ -132,30 +107,6 @@
 
     .log-out {
         transform: translateX(-25px);
-    }
-
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateX(200px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(-25px);
-        }
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: translateX(-25px);
-        }
-
-        to {
-            opacity: 0;
-            transform: translateX(200px);
-        }
     }
 }
 

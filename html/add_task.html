@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="../css/sidebar_responsive.css">
     <link rel="stylesheet" href="../css/add_task.css">
     <link rel="stylesheet" href="../css/add_task_responsive.css">
+    <link rel="stylesheet" href="../css/key_frames.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <script src="../js/script.js"></script>
     <script src="../js/add_task.js"></script>
-
 
     <title>Join</title>
 </head>
@@ -37,7 +37,7 @@
                     required></textarea>
 
                 <span class="little-headlines">Category</span>
-                <div onclick="showCategories()" id="select-div-category" class="select-div">
+                <div onclick="showCategories()" id="select-div-category" class="select-div cursor-pointer">
                     <span id="selected-category"> Select Task Category</span>
                     <input class="hidden-input" id="hidden-category-input" type="text" required>
                     <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">
@@ -66,7 +66,8 @@
                 </ul>
 
                 <span class="little-headlines">Assigned to</span>
-                <div onclick="showContacts()" id="select-div-contact" class="select-div no-margin-bottom">
+                <div onclick="showContacts()" id="select-div-contact"
+                    class="select-div no-margin-bottom cursor-pointer">
                     <span id="selected-contact">Select contacts to assign</span>
                     <input class="hidden-input" id="hidden-contact-input" type="text" required>
                     <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">
@@ -124,7 +125,7 @@
                 <span class="little-headlines">Subtasks</span>
                 <div class="subtask-input-div">
                     <input id="subtask-input" onclick="showXandCheckmark()" type="text" placeholder="Add new subtask">
-                    <div id="subtask-icons" onclick="showXandCheckmark()" class="subtask-img-container">
+                    <div id="subtask-icons" onclick="showXandCheckmark()" class="subtask-img-container cursor-pointer">
                         <img id="plus-icon" src="../img/plus-icon.png" alt="plus">
                     </div>
                 </div>
@@ -135,12 +136,12 @@
 
 
             <div class="clear-create-div">
-                <div onclick="clearPage()" class="clear-div">
+                <div onclick="clearPage()" class="clear-div cursor-pointer">
                     <span>Clear</span>
                     <img src="../img/close-icon.png" alt="close-icon">
                 </div>
-                <button id="create-task" class="create-div">
-                    <div class="create-button">Create Task</div>
+                <button id="create-task" class="create-div cursor-pointer">
+                    <div class="create-button cursor-pointer">Create Task</div>
                     <img src="../img/checkmark.png" alt="checkmark-icon">
                 </button>
             </div>
@@ -151,7 +152,6 @@
             <span>Task added to board</span>
             <img src="../img/board-icon.svg" alt="board-icon">
         </div>
-
     </form>
 
 </body>

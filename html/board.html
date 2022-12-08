@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/sidebar_responsive.css">
     <link rel="stylesheet" href="../css/style_board.css">
     <link rel="stylesheet" href="../css/board_responsive.css">
+    <link rel="stylesheet" href="../css/key_frames.css">
     <link rel="stylesheet" href="../fonts/fonts.css">
     <link rel="stylesheet" href="../css/add_task.css">
     <link rel="stylesheet" href="../css/add_task_responsive.css">
@@ -23,8 +24,6 @@
     <script src="../js/add_task.js"></script>
     <script src="../js/summary.js"></script>
     <script src="../js/login.js"></script>
-
-    <title>Join</title>
 </head>
 
 <body onload="initBoard()">
@@ -94,7 +93,7 @@
                 <div class="kanban-management-headlines">
                     <div class="unterordner">
                         <h2>
-                            <b> Awaiting Feedback</b >
+                            <b> Awaiting Feedback</b>
                         </h2>
 
                         <img src="../img/plus-icon-with-border.png" onmouseover="switchAddIcon(id)"
@@ -155,7 +154,8 @@
                             required></textarea>
 
                         <span class="little-headlines">Category</span>
-                        <div onclick="showCategories()" id="select-div-category" class="select-div"     style="width: 90% !important;">
+                        <div onclick="showCategories()" id="select-div-category" class="select-div"
+                            style="width: 90% !important;">
                             <span id="selected-category"> Select Task Category</span>
                             <input class="hidden-input" id="hidden-category-input" type="text" required>
                             <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">

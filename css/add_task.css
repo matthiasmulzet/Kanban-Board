@@ -8,6 +8,10 @@ body {
     display: none !important;
 }
 
+.cursor-pointer {
+    cursor: pointer;
+}
+
 .no-border-bottom {
     margin-bottom: 0px !important;
     border-bottom: 0px !important;
@@ -93,7 +97,6 @@ h1 {
     border: 1px solid lightgray;
     border-radius: 10px;
     margin-bottom: 34px;
-    cursor: pointer;
 }
 
 .select-div span {
@@ -101,7 +104,7 @@ h1 {
 }
 
 ul {
-    position: relative; 
+    position: relative;
     z-index: 200;
     list-style-type: none;
     width: 464px;
@@ -202,7 +205,6 @@ input::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
-
 .prio-div {
     display: flex;
     margin-bottom: 35px;
@@ -226,7 +228,6 @@ input::-webkit-calendar-picker-indicator {
     scale: 1.05;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
 }
-
 
 .prio-div span {
     font-size: 21px;
@@ -281,7 +282,7 @@ input::-webkit-calendar-picker-indicator {
 .subtask-input-div input {
     font-size: 21px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     padding: 0;
     height: 100%;
     width: 345px;
@@ -315,7 +316,6 @@ input::-webkit-calendar-picker-indicator {
     justify-content: center;
     right: 24px;
     background-color: white;
-    cursor: pointer;
 }
 
 .added-subtasks {
@@ -354,7 +354,6 @@ input::-webkit-calendar-picker-indicator {
     background-color: white;
     border: 1px solid #2A3647;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .clear-div img {
@@ -378,7 +377,6 @@ input::-webkit-calendar-picker-indicator {
     margin-left: 30px;
     border: 1px solid #2A3647;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .clear-div:hover {
@@ -400,7 +398,6 @@ input::-webkit-calendar-picker-indicator {
     font-size: 21px;
     color: white;
     border-radius: 10px;
-    cursor: pointer;
 }
 
 .create-div:hover {
@@ -437,14 +434,4 @@ input::-webkit-calendar-picker-indicator {
     height: 26px;
     margin-left: 20px;
     filter: brightness(0) invert(1);
-}
-
-@keyframes fadeInAddedTask {
-    from {
-        bottom: -15%;
-    }
-
-    to {
-        bottom: 5%;
-    }
 }

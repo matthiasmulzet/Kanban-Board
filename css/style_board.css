@@ -3,14 +3,14 @@
     /* use for sizing tasks */
 }
 
-
-/* Headline-section */
+.d-none {
+    display: none !important;
+}
 
 .headline-section {
     width: 100%;
     height: 30%;
 }
-
 
 .first-row {
     display: flex;
@@ -22,11 +22,9 @@
     padding-right: 5%;
 }
 
-
 .form-fields {
     display: flex;
 }
-
 
 .find-task-div {
     display: flex;
@@ -39,7 +37,6 @@
     height: 34px;
 }
 
-
 .find-task-div img {
     object-fit: cover;
     filter: invert(0.2);
@@ -47,13 +44,11 @@
     border-left: 1px solid white;
 }
 
-
 .find-task-input {
     height: 40px;
     border: none;
 
 }
-
 
 .find-task-button {
     height: 42px;
@@ -65,12 +60,10 @@
     margin-left: 25px;
 }
 
-
 .find-task-button:hover {
     background-color: #2a3a50;
     cursor: pointer;
 }
-
 
 .second-row {
     display: flex;
@@ -80,14 +73,12 @@
     gap: 17px;
 }
 
-
 .unterordner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
 }
-
 
 .kanban-management-headlines {
     display: flex;
@@ -97,18 +88,15 @@
     flex-direction: column;
 }
 
-
 .unterordner img {
     height: 27px;
     width: auto;
     object-fit: contain;
 }
 
-
 .switch-add-icon {
     object-fit: cover;
 }
-
 
 .switch-add-icon:hover {
     object-fit: cover;
@@ -121,7 +109,6 @@
 }
 
 /* Kanban Overview Section */
-
 .kanban-overview {
     display: flex;
     font-family: 'Inter';
@@ -229,7 +216,6 @@
 
 
 /* Colors */
-
 .orange {
     background-color: rgba(255, 122, 0, 1) !important;
 }
@@ -255,8 +241,6 @@
 ** c-t === clicked-task-window
 **
 */
-
-
 .clicked-task-bg {
     position: fixed;
     background-color: rgba(0, 0, 0, 0.3);
@@ -278,7 +262,6 @@
 ::-webkit-scrollbar-track {
     border-radius: 5px;
 }
-
 
 .clicked-task-window {
     position: fixed;
@@ -315,8 +298,6 @@
     border-radius: 10px;
 }
 
-
-
 .clicked-task-window textarea {
     width: 100%;
     padding: 18px 21px;
@@ -326,7 +307,6 @@
     border: 1px solid #D1D1D1;
     border-radius: 10px;
 }
-
 
 .c-t-prio-divs-head {
     display: flex;
@@ -376,12 +356,13 @@
     width: 40px;
 }
 
-
 .c-t-ok-edit-button:hover {
     cursor: pointer;
 }
 
 /* Edit window end */
+
+
 a::-webkit-scrollbar {
     border-radius: 20px;
 }
@@ -391,7 +372,6 @@ a::-webkit-scrollbar {
     justify-content: space-between;
     align-items: center;
 }
-
 
 .c-t-exit-arrow-edit {
 
@@ -408,7 +388,6 @@ a::-webkit-scrollbar {
 .c-t-exit-arrow:hover {
     cursor: pointer;
 }
-
 
 .c-t-category {
     font-size: 22px;
@@ -436,7 +415,6 @@ a::-webkit-scrollbar {
     line-height: 150%;
 }
 
-
 .c-t-subtask-section {
     display: flex;
 }
@@ -455,7 +433,6 @@ a::-webkit-scrollbar {
     gap: 10px;
 }
 
-
 .c-t-checkbox input {
     display: flex;
     margin-left: 5px;
@@ -473,7 +450,6 @@ a::-webkit-scrollbar {
 .c-t-space {
     width: 50%;
 }
-
 
 .priority-box {
     padding: 4px 18px;
@@ -529,7 +505,6 @@ a::-webkit-scrollbar {
     justify-content: flex-start;
 }
 
-
 .c-t-edit-button {
     display: flex;
     align-items: flex-end;
@@ -538,7 +513,6 @@ a::-webkit-scrollbar {
     bottom: 4%;
     right: 5%;
 }
-
 
 .c-t-remove-edit-button {
     width: 150px;
@@ -562,7 +536,6 @@ a::-webkit-scrollbar {
     border-color: buttonborder;
     border-image: initial;
 }
-
 
 .c-t-remove-edit-button img {
     width: 40px;
@@ -591,7 +564,6 @@ a::-webkit-scrollbar {
     position: absolute;
     cursor: pointer;
 }
-
 
 .clicked-addtask-bg {
     position: fixed;
@@ -626,41 +598,6 @@ a::-webkit-scrollbar {
     animation: fadeInAddTask 1s ease-in-out;
 
 }
-
-
-
-
-
-.d-none {
-    display: none !important;
-}
-
-
-@keyframes fadeInAddTask {
-    from {
-        transform: translateX(940px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-
-@keyframes fadeOutTask {
-    from {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-
-    to {
-        transform: translateX(940px);
-        opacity: 0;
-    }
-}
-
 
 .add-task-whole-page {
     display: flex;
@@ -697,101 +634,3 @@ a::-webkit-scrollbar {
 .width-422 {
     width: 422px !important;
 }
-
-
-@media (max-width:1400px) {
-
-    .kanban-management-headlines {
-        width: 100%;
-    }
-
-    .second-row {
-        flex-direction: column;
-    }
-
-    :root {
-        --width-task-size: 100%;
-    }
-
-    .current-status {
-        width: 100%;
-        min-height: 10;
-    }
-
-    .find-task-div {
-        justify-content: space-between;
-        margin-left: 5%;
-        height: 34px;
-        width: 300px;
-    }
-
-    .clicked-task-window {
-        transform: translate(-28%, -50%);
-    }
-}
-
-
-
-@media (max-width:770px) {
-
-    .clicked-task-window {
-        transform: translate(-50%, -50%);
-    }
-}
-
-@media (max-width:570px) {
-
-    header {
-        z-index: 500 !important;
-    }
-
-
-    .clicked-task-window {
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0px;
-        margin: 30px;
-        padding: 30px;
-        padding-top: 90px;
-        top: 59%;
-        background-color: #F6F7F8;
-        gap: 10px;
-    }
-
-    .clicked-task-window-edit-input {
-        width: 90%;
-    }
-
-    .clicked-task-window textarea {
-        width: 90%;
-    }
-
-    .c-t-prio-divs-head {
-        width: 90%;
-    }
-
-
-    .clicked-task-bg {
-        position: fixed;
-        display: none;
-    }
-
-    .c-t-first-row {
-        width: 80%;
-    }
-
-
-    .c-t-remove-edit-button {
-        position: fixed;
-        left: 6%;
-        bottom: 20%;
-    }
-
-    .c-t-exit-arrow-edit {
-        width: 90%;
-        margin-bottom: 0px;
-    }
-}
-
-
-

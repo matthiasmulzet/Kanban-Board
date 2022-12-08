@@ -1,3 +1,35 @@
+@media (max-width:1400px) {
+
+    .kanban-management-headlines {
+        width: 100%;
+    }
+
+    .second-row {
+        flex-direction: column;
+    }
+
+    :root {
+        --width-task-size: 100%;
+    }
+
+    .current-status {
+        width: 100%;
+        min-height: 10;
+    }
+
+    .find-task-div {
+        justify-content: space-between;
+        margin-left: 5%;
+        height: 34px;
+        width: 300px;
+    }
+
+    .clicked-task-window {
+        transform: translate(-28%, -50%);
+    }
+}
+
+
 @media(max-width: 1200px) {
     .clicked-addtask-window {
         justify-content: center;
@@ -50,6 +82,7 @@
     .clicked-addtask-window {
         z-index: unset;
         top: 75px;
+        transform: translate(-50%, -50%);
     }
 
     .clicked-addtask-bg {
@@ -68,10 +101,26 @@
 
 
 @media(max-width: 570px) {
+    header {
+        z-index: 500 !important;
+    }
 
+    .clicked-task-window {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0px;
+        margin: 30px;
+        padding: 30px;
+        padding-top: 90px;
+        top: 59%;
+        background-color: #F6F7F8;
+        gap: 10px;
+    }
 
     .clicked-task-bg {
         display: none !important;
+        position: fixed;
+        display: none;
     }
 
     .add-task-left-side {
@@ -102,6 +151,32 @@
         right: 16%;
     }
 
+    .clicked-task-window-edit-input {
+        width: 90%;
+    }
+
+    .clicked-task-window textarea {
+        width: 90%;
+    }
+
+    .c-t-prio-divs-head {
+        width: 90%;
+    }
+
+    .c-t-first-row {
+        width: 80%;
+    }
+
+    .c-t-remove-edit-button {
+        position: fixed;
+        left: 6%;
+        bottom: 20%;
+    }
+
+    .c-t-exit-arrow-edit {
+        width: 90%;
+        margin-bottom: 0px;
+    }
 }
 
 
