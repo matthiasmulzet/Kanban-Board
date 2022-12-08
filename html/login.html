@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+
+    <link rel="icon" type="image/x-icon" href="../img/join-logo.svg">
+
+    <script src="../js/login.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../mini_backend.js"></script>
+    <script src="../js/board.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="../js/add_task.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="../css/login_responsive.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+
+    <title>Join</title>
+</head>
+
+<body onload="initLogin()">
+
+    <div class="whole-login-page">
+        <div class="logo" id="logo">
+            <img src="../img/join-logo.svg" alt="join-logo">
+        </div>
+
+        <!-- from a max-width: 770px this div gets display:none and will be shown under the login container -->
+        <div id="sign-up-field" class="sign-up-container responsive-d-none-sign-up">
+            <span>Not a Join user?</span>
+            <button onclick="showSignUp()">Sign up</button>
+        </div>
+
+        <!-- log in field -->
+        <div id="login-field" class="login-container">
+            <span class="login-headline">Log in</span>
+            <div class="login-headline-border"></div>
+
+            <form onkeyup="proofInputLogin()" onsubmit="proofLogin(); return false;">
+                <input id="login-email" class="login-input login-email-input-bg" min="5" max="100" type="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Geben Sie eine gültige E-Mail Adresse ein"
+                    placeholder="E-Mail" required>
+                <input id="login-password" class="login-input login-password-input-bg" min="8" type="password"
+                    pattern=".{8,}" title="Passwort ist zu kurz (mindestens 8 Zeichen)" placeholder="Password" required>
+
+                <!-- span appears when the email address or password are wrong  -->
+                <span id="wrong-login-dates" class="wrong-login-or-register d-none">Your E-Mail address or password
+                    is
+                    wrong</span>
+
+                <div id="forgot-reset-pw-container" class="remember-forgot-password-container">
+                    <div>
+                        <input id="checkbox-remember-me" type="checkbox">
+                        <span>Remember me</span>
+                    </div>
+                    <a href="forgot_password.html">Forgot my password</a>
+                </div>
+
+                <div class="login-buttons">
+                    <button class="login-signup-buttons button-bg-black">Log
+                        in</button>
+                    <button onclick="guestLogin()" class="login-signup-buttons login-guest-button">Guest Log
+                        in</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- this is the div which will from a max-width: 770px shown under the login container,
+             before it appears above the login container -->
+        <div id="sign-up-field" class="sign-up-container">
+            <span>Not a Join user?</span>
+            <button onclick="showSignUp()">Sign up</button>
+        </div>
+    </div>
+
+
+</body>
+
+</html>

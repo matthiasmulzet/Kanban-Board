@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join - Contacts</title>
+
+    <link rel="icon" type="image/x-icon" href="../img/join-logo.svg">
+
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/sidebar_responsive.css">
+    <link rel="stylesheet" href="../css/contacts.style.css">
+    <link rel="stylesheet" href="../css/contact_responsive.css">
+    <link rel="stylesheet" href="../fonts/fonts.css">
+    <script src="../mini_backend.js"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/contact.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body onload="initContacs()">
+    <div w3-include-html="sidebar.html"></div>
+    <div id="render" class="render">
+
+        <div id="content-left" class="content-left">
+            <div class="white-background"></div>
+            <button onclick="newConatct()" class="new-contact-responsiv">
+                <span>New contact</span>
+                <img src="../img/new-contact-icon.png">
+            </button>
+
+        </div>
+        <!-- <div class="border-container">
+        </div> -->
+        <div id="content-right" class="content-right">
+            <div class="content-right-header">
+                <div class="text">Kanban Project Management Tool</div>
+                <div class="content-back-arrow">
+                    <div class="contacts">Contacts</div>
+                    <img onclick="closeContactInfo()" class="back-arrow" src="../img/black-back-arrow.png">
+                </div>
+                <div class="team-text">Better with a team</div>
+            </div>
+
+            <div class="border"></div>
+
+            <div id="member-info" class="member-info">
+
+                <button onclick="newConatct()" class="new-contact">
+                    <span>New contact</span>
+                    <img src="../img/new-contact-icon.png">
+                </button>
+            </div>
+        </div>
+
+        <div id="background-grey" class="d-none"></div>
+
+        <div id="add-contact" class="d-none">
+            <div onclick="cancel()" class="cancel-button-responsiv"><img class="close-withe"
+                    src="../img/plus-icon.png  "></div>
+            <div class="edit-contact-left">
+                <img class="logo" src="../img/logo.png">
+                <div class="header-edit-contact">Add contact</div>
+                <div class="text-edit-contact">Task are better with a team!</div>
+                <div class="blue-border"></div>
+            </div>
+            <div class="edit-contact-right">
+                <div>
+                    <div class="member-img-container">
+                        <img class="member-img" src="../img/member.png">
+                    </div>
+                </div>
+                <form onsubmit="addContact(); return false;" class="edit-contact-input">
+                    <input id="name" required class="inputs-name" placeholder="Name" type="text">
+                    <input id="email" required class="inputs-email" placeholder="Email" type="email">
+                    <input id="phone" required class="inputs-phone" placeholder="Phone" type="number">
+                    <div class="button-box">
+                        <div onclick="cancel()" class="cancel-button">Cancel<img class="cancel-button-img"
+                                src="../img/close-icon.png"></div>
+                        <button class="creat-button">Creat contact<img src="../img/checkmark.png"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="contact-created" class="d-none">
+            <span>contact created successfuly</span>
+            <img src="../img/contacts-icon.svg" alt="board-icon">
+        </div>
+
+        <div id="edit-contact" class="d-none">
+        </div>
+    </div>
+</body>
+
+</html>
