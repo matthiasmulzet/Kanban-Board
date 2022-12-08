@@ -387,7 +387,7 @@ function closeContactInfo() {
 function deleteContact(i) {
     contact.splice(i, 1);
     idNumberMemberBox.splice(i, 1);
-    
+
     clearContentLeft();
     pushFirstLetterJSON();
     loadABCContainer();
@@ -405,9 +405,9 @@ function memberHTML(i) {
     return /*HTML*/` 
     <button id="member-box${i}" onclick="showMemberInfo(${i})" class="member-box">
     <div id="shortcut-name${i}" class="shortcut-name">AM</div>
-                <div>
-                    <div class="fontsice-21">${contact[i]['name']}</div>
-                    <div class="email">${contact[i]['email']}</div>
+                <div class="shortcut-name-email-container">
+                    <div class="fontsice-21 overflow-hidden">${contact[i]['name']}</div>
+                    <div class="email overflow-hidden">${contact[i]['email']}</div>
                 </div>
                 </button>
                 `;

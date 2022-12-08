@@ -34,7 +34,6 @@ body {
 }
 
 .content-left {
-
     padding-top: 12px;
     background-color: white;
     height: 90vh;
@@ -99,18 +98,24 @@ body {
     margin-right: 35px;
 }
 
+.shortcut-name-email-container {
+    max-width: 198px;
+    white-space: nowrap;
+    display: block;
+    text-align: left;
+}
+
+.overflow-hidden {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .email {
-    width: 80%;
     height: 19px;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
     font-size: 16px;
-    line-height: 120%;
-    display: flex;
     align-items: center;
     color: #007CEE;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     margin-top: 5px;
     cursor: pointer;
 }

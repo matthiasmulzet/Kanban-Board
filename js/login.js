@@ -173,11 +173,9 @@ function proofInputLogin() {
  * onkeyup function
  */
 function proofInputSignUp() {
-    let name = document.getElementById('name');
     let email = document.getElementById('email');
-    let password = document.getElementById('password');
     let user = users.find(u => u.email == email.value);
-    setOrRemoveWarningAndSetButton(name, email, password, user)
+    setOrRemoveWarningAndSetButton(user)
 }
 
 
@@ -185,13 +183,11 @@ function proofInputSignUp() {
  * 
  * proof different cases in the sign up process and shows the Warning or removes it
  */
-function setOrRemoveWarningAndSetButton(name, email, password, user) {
+function setOrRemoveWarningAndSetButton(user) {
     if (user) {
         showEmailInUseWarning();
     }
-    else if (name.value.length >= 1 && email.value.length >= 1 && password.value.length >= 1) {
-        showSubmitButton();
-    }
+
     if (!user || !document.getElementById('successful-registration').classList.contains('d-none')) {
         removeEmailInUseWarning();
     }
@@ -205,8 +201,6 @@ function setOrRemoveWarningAndSetButton(name, email, password, user) {
 function showEmailInUseWarning() {
     document.getElementById('password').classList.add('no-margin-bottom');
     document.getElementById('email-in-use').classList.remove('d-none');
-    document.getElementById('submit-button').classList.add('d-none');
-    document.getElementById('no-submit-button').classList.remove('d-none');
 }
 
 
@@ -217,16 +211,6 @@ function showEmailInUseWarning() {
 function removeEmailInUseWarning() {
     document.getElementById('password').classList.remove('no-margin-bottom');
     document.getElementById('email-in-use').classList.add('d-none');
-}
-
-
-/**
- * if every input field in the sign up container includes min. 1 symbol, the submit button will be showed
- * before that a span, which looks almost the same as the submit button, will be showed and you can't click on that span
- */
-function showSubmitButton() {
-    document.getElementById('submit-button').classList.remove('d-none');
-    document.getElementById('no-submit-button').classList.add('d-none');
 }
 
 

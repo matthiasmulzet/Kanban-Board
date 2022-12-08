@@ -253,6 +253,7 @@ function clearPage() {
     showDefaultPrioImgs();
     removeBgPrio();
     setValuesEmpty();
+    document.getElementById('all-contacts-initials').classList.add('d-none');
     document.getElementById('selected-category').innerHTML = 'Select task Category';
     document.getElementById('overview-subtasks').innerHTML = '';
     clearContacts();

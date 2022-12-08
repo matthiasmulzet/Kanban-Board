@@ -97,6 +97,7 @@ h1 {
     border: 1px solid lightgray;
     border-radius: 10px;
     margin-bottom: 34px;
+    cursor: pointer;
 }
 
 .select-div span {

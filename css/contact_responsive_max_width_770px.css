@@ -83,10 +83,9 @@
     .member-box {
         width: 85%;
         margin-top: 25px;
-        padding-top: 0px;
+        padding-top: 10px;
         margin-left: 24px;
         margin-bottom: 0px;
-        align-items: center;
     }
 
     .fontsice-21 {
@@ -94,7 +93,6 @@
     }
 
     .email {
-        width: 14px;
         font-size: 16px;
         margin-bottom: 8px;
         margin-top: 5px;
@@ -272,7 +270,14 @@
 }
 
 
-@media(max-width: 460px) {
+@media (max-width: 570px) {
+    .shortcut-name-emai-container {
+        max-width: 175px;
+    }
+}
+
+
+@media(max-width: 480px) {
     .content-left {
         height: 70vh;
         width: 100vw;
@@ -286,6 +291,10 @@
     .edit-contact-icon-img {
         height: 50px;
         width: 50px;
+    }
+
+    .shortcut-name-email-container {
+        max-width: 133px;
     }
 }
 
@@ -322,5 +331,9 @@
     .edit-contact-icon-img {
         height: 35px;
         width: 35px;
+    }
+
+    .shortcut-name-email-container {
+        max-width: 95px;
     }
 }

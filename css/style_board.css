@@ -47,7 +47,8 @@
 .find-task-input {
     height: 40px;
     border: none;
-
+    outline: none;
+    width: 260px;
 }
 
 .find-task-button {
@@ -317,6 +318,7 @@
 
 .c-t-prio-divs {
     width: 30%;
+    background-color: white;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -325,6 +327,13 @@
     gap: 10px;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+}
+
+.c-t-prio-divs:hover {
+    scale: 1.05;
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.1);
 }
 
 .clicked-task-window-edit-input {

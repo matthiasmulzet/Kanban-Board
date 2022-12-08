@@ -25,7 +25,7 @@
     }
 
     .clicked-task-window {
-        transform: translate(-28%, -50%);
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -82,7 +82,7 @@
     .clicked-addtask-window {
         z-index: unset;
         top: 75px;
-        transform: translate(-50%, -50%);
+        /* transform: translate(-50%, -50%); */
     }
 
     .clicked-addtask-bg {
@@ -217,7 +217,27 @@
         font-size: 16px !important;
     }
 
+    .c-t-exit-arrow-edit {
+        width: 82%;
+    }
+
     .c-t-title {
         font-size: 35px;
+    }
+
+    .c-t-prio-divs-head {
+        width: 82%;
+        gap: 7px;
+    }
+
+    .c-t-prio-divs {
+        width: 40%;
+        padding: 12px 2px;
+        gap: 5px;
+    }
+
+    .c-t-prio-divs img {
+        height: 13px;
+        width: 13px;
     }
 }

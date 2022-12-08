@@ -271,20 +271,6 @@ form {
     color: #29ABE2;
 }
 
-.fake-button-without-onclick {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 141px;
-    height: 44px;
-    padding: 4px 0px;
-    border-radius: 8px;
-    font-weight: 700;
-    font-size: 21px;
-    opacity: 0.4;
-    margin-top: 6px;
-}
-
 .successful-registration {
     position: absolute;
     display: flex;

@@ -6,6 +6,10 @@
     .email {
         font-size: calc(10px + (16 - 14) * ((100vw - 320px) / (1600 - 320)));
     }
+
+    .shortcut-name-email-container {
+        max-width: 148px;
+    }
 }
 
 
@@ -92,8 +96,11 @@
         width: 80%;
     }
 
+    .shortcut-name-email-container {
+        max-width: 280px;
+    }
+
     .email {
-        width: 80%;
         font-size: 12px;
         margin-bottom: 10px;
     }
