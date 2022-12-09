@@ -35,7 +35,9 @@ h1 {
     height: 0 !important;
     padding: 0 !important;
     opacity: 0;
+    z-index: -10;
 }
+
 
 .add-task-whole-page {
     display: flex;
@@ -100,6 +102,15 @@ h1 {
     cursor: pointer;
 }
 
+.select-category-input {
+    border: none !important;
+    font-size: 21px !important;
+    padding: 0px 0px !important;
+    outline: none;
+    width: calc(100% - 76px) !important;
+}
+
+
 .select-div span {
     font-size: 21px;
 }
@@ -119,6 +130,17 @@ ul {
     margin-top: 0;
     margin-bottom: 34px;
     padding-left: 0;
+}
+
+.new-category-points {
+    display: flex;
+    gap: 25px;
+    margin-left: 20px;
+    margin-bottom: 34px;
+}
+
+.new-category-points div {
+    cursor: pointer;
 }
 
 .div-li-category, .div-li-stage {
@@ -245,6 +267,10 @@ input::-webkit-calendar-picker-indicator {
     color: white !important;
 }
 
+.bg-light-yellow {
+    background-color: #cccc00;
+}
+
 .bg-green {
     background-color: #7AE229 !important;
     color: white !important;
@@ -254,12 +280,20 @@ input::-webkit-calendar-picker-indicator {
     background-color: #FC71FF;
 }
 
+.bg-dark-pink {
+    background-color: #660033;
+}
+
 .bg-turquoise {
     background-color: #1FD7C1;
 }
 
 .bg-blue {
     background-color: #0038FF;
+}
+
+.bg-light-blue {
+    background-color: #6666FF;
 }
 
 .bg-violet {
@@ -423,6 +457,7 @@ input::-webkit-calendar-picker-indicator {
     padding: 0;
     background-color: #2A3647;
     box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.15);
+    z-index: 500;
 }
 
 .task-added-to-board span {

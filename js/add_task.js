@@ -304,18 +304,14 @@ function generateDate() {
 
 
 /**
- * by clicking on a button, a list with selections is shown
- * or hidden
- * 
+ * by clicking on a button, a list with selections is shown or hidden
  */
 function showCategories() {
     let ulCategory = document.getElementById("ul-category");
-    if (ulCategory.classList.contains('d-none')) {
+    if (ulCategory.classList.contains('d-none'))
         showSelectionCategories(ulCategory);
-    }
-    else {
+    else
         hideSelectionCategories(ulCategory);
-    }
 }
 
 
@@ -489,6 +485,31 @@ function setValueInitials(isChecked, initial, initial1, initial2, initial3) {
 
 function noPersonSelected(initial1, initial2, initial3) {
     return initial1.classList.contains('d-none') && initial2.classList.contains('d-none') && initial3.classList.contains('d-none')
+}
+
+
+/**
+ * activates the option to add a subtask
+ */
+function showInputCategory() {
+    document.getElementById('select-div-category').innerHTML = /*html*/ `
+        <input class="select-category-input" type="text" placeholder="New category name">
+        <img onclick="closeInputCategory()" id="close-icon" src="../img/close-icon.png" alt="close">
+        <img onclick="addSubtask()" id="checkmark-icon" class="" src="../img/checkmark.png" alt="checkmark">`;
+    document.getElementById('ul-category').classList.add('d-none');
+    document.getElementById("select-div-category").classList.remove('no-border-bottom');
+    document.getElementById('all-category-points').classList.remove('d-none');
+    document.getElementById("select-div-category").style = 'margin-bottom: 15px;';
+}
+
+
+function closeInputCategory() {
+    document.getElementById('ul-category').classList.add('d-none');
+    document.getElementById('select-div-category').innerHTML = /*html*/ `
+        <span id="selected-category"> Select Task Category</span>
+        <input class="hidden-input" id="hidden-category-input" type="text" required>
+        <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">`;
+    document.getElementById('all-category-points').classList.add('d-none');
 }
 
 
