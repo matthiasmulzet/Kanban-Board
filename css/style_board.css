@@ -12,6 +12,10 @@
     height: 30%;
 }
 
+.responsive-marg-bot-90px {
+    margin-bottom: 90px;
+}
+
 .first-row {
     display: flex;
     justify-content: space-between;
@@ -269,9 +273,9 @@
     top: 50%;
     left: 50%;
     transform: translate(-32%, -50%);
-    padding: 60px;
+    padding: 30px 60px;
     width: 433px;
-    height: 600px;
+    height: 630px;
     border-radius: 20px;
     background-color: white;
     z-index: 300;
@@ -307,6 +311,7 @@
     height: 74px;
     border: 1px solid #D1D1D1;
     border-radius: 10px;
+    resize: none;
 }
 
 .c-t-prio-divs-head {
@@ -343,8 +348,14 @@
     width: 100%;
 }
 
+.c-t-remove-ok-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
 .c-t-ok-edit-button {
-    width: 95px;
     height: 51px;
     display: flex;
     justify-content: center;
@@ -355,10 +366,6 @@
     color: white;
     font-weight: 700;
     font-size: 21px;
-    line-height: 120%;
-    position: fixed;
-    bottom: 4%;
-    right: 5%;
 }
 
 .c-t-ok-edit-button img {
@@ -504,15 +511,6 @@ a::-webkit-scrollbar {
     font-weight: 500;
 }
 
-.c-t-ok-edit-button-div {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.c-t-remove-edit-button-div {
-    display: flex;
-    justify-content: flex-start;
-}
 
 .c-t-edit-button {
     display: flex;
@@ -523,8 +521,7 @@ a::-webkit-scrollbar {
     right: 5%;
 }
 
-.c-t-remove-edit-button {
-    width: 150px;
+.c-t-delete-edit-button {
     height: 51px;
     display: flex;
     justify-content: center;
@@ -534,23 +531,15 @@ a::-webkit-scrollbar {
     padding: 0px 10px;
     color: white;
     font-weight: 700;
-    font-size: 13px;
-    line-height: 120%;
-    position: fixed;
-    left: 11%;
-    bottom: 4%;
+    font-size: 16px;
     gap: 10px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonborder;
-    border-image: initial;
 }
 
-.c-t-remove-edit-button img {
+.c-t-delete-edit-button img {
     width: 40px;
 }
 
-.c-t-remove-edit-button:hover {
+.c-t-delete-edit-button:hover {
     cursor: pointer;
 }
 

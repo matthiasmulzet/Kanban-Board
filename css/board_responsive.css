@@ -146,11 +146,6 @@
         right: 16%;
     }
 
-    .c-t-ok-edit-button {
-        bottom: 20%;
-        right: 16%;
-    }
-
     .clicked-task-window-edit-input {
         width: 90%;
     }
@@ -167,10 +162,9 @@
         width: 80%;
     }
 
-    .c-t-remove-edit-button {
-        position: fixed;
-        left: 6%;
-        bottom: 20%;
+    .c-t-remove-ok-buttons {
+        width: 90%;
+        margin-bottom: 120px;
     }
 
     .c-t-exit-arrow-edit {
@@ -183,6 +177,10 @@
 @media(max-width: 380px) {
     .right-side-first-half {
         width: 260px !important;
+    }
+
+    .find-task-div {
+        width: 87%;
     }
 
     .clear-create-div {
@@ -213,6 +211,14 @@
         margin-left: 5px !important;
     }
 
+    .clicked-task-window input {
+        width: 85%;
+    }
+
+    .clicked-task-window textarea {
+        width: 85%;
+    }
+
     .create-button {
         font-size: 16px !important;
     }
@@ -239,5 +245,22 @@
     .c-t-prio-divs img {
         height: 13px;
         width: 13px;
+    }
+
+    .c-t-edit-button {
+        right: 22%;
+    }
+
+    .c-t-ok-edit-button {
+        font-size: 18px;
+        padding: 0px 8px;
+    }
+
+    .c-t-remove-edit-button {
+        padding: 0px 5px;
+    }
+
+    .c-t-remove-edit-button img {
+        width: 35px;
     }
 }

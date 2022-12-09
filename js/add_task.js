@@ -8,6 +8,7 @@ let actualPrio;
 let createdTasks = 0;
 let liCategory;
 let liContact;
+let liStage;
 let twoSubtaskIcons = false;
 let substasksJSON = [];
 
@@ -408,6 +409,37 @@ function showContacts() {
             document.getElementById('all-contacts-initials').classList.add('d-none');
         }
     }
+}
+
+
+function showStages() {
+    let ulStage = document.getElementById("ul-stage");
+    if (ulStage.classList.contains('d-none')) {
+        ulStage.classList.remove('d-none');
+        document.getElementById("select-div-stage").classList.add('no-border-bottom');
+    }
+
+    else {
+        ulStage.classList.add('d-none');
+        document.getElementById("select-div-stage").classList.remove('no-border-bottom');
+    }
+}
+
+
+/**
+* Stage selection function
+ * @param {string} id - selected stage
+ */
+function selectStage(id) {
+    liStage = id.replace('div-', '');
+    let ulStage = document.getElementById("ul-stage");
+    let stage = document.getElementById(id).innerHTML;
+    document.getElementById('selected-stage').style = 'display: flex; align-items: center; list-style-type: none;';
+    document.getElementById("selected-stage").innerHTML = stage;
+    let selectedStageId = id.replace('div', 'li');
+    document.getElementById(selectedStageId).style = 'margin: 0px;';
+    ulStage.classList.add('d-none');
+    document.getElementById("select-div-stage").classList.remove('no-border-bottom');
 }
 
 

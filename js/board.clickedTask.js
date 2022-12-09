@@ -5,7 +5,7 @@
  * 
  * @param {string} actualSector - contains category like "marketing" or "backend"l
  */
- function displayClickedTask(id) {
+function displayClickedTask(id) {
     currentClickedTask = id;
     document.getElementById('open-clicked-task').style.display = "flex";
     if (!myMediaQuery570.matches) {
@@ -33,7 +33,7 @@ function createClickedTaskView(id) {
 
 /** displays the associated importance on Clicked Task view
  */
- function displayImportanceStatusCT() {
+function displayImportanceStatusCT() {
     element = downloadedTasks[currentClickedTask];
     let importanceId = document.getElementById(`importance-id-c-t-${currentClickedTask}`);
     let white = "_white";
@@ -46,7 +46,7 @@ function createClickedTaskView(id) {
  * 
  * @param {array} element -  contains id from currently clicked task
  */
- function SetimportanceColorCT(element) {
+function SetimportanceColorCT(element) {
     let priorityBox = document.getElementById('priority-box-c-t');
     if (element['prio'] == 'Urgent') {
         priorityBox.style.background = "#FF3D00";
@@ -84,7 +84,7 @@ function createAssignedContacs(id) {
  * @param {number} id - contains id of current clicked task 
  * @param {*} arrayOfSubtasks - contains "downloadedTasks[id]['subtasks']"
  */
- function CheckCheckboxandCreateSubtasks(id, arrayOfSubtasks) {
+function CheckCheckboxandCreateSubtasks(id, arrayOfSubtasks) {
     for (let i = 0; i < arrayOfSubtasks.length; i++) {
 
         let checked = '';
@@ -108,7 +108,7 @@ function createAssignedContacs(id) {
  * @param {number} id - is the same like downloadedTasks[x]['id']
  * 
  */
- function createSubtasks(id) {
+function createSubtasks(id) {
 
     let arrayOfSubtasks = downloadedTasks[id]['subtasks'];
 
@@ -128,16 +128,20 @@ function createAssignedContacs(id) {
 /** function gets the new value typed in the editMenu from clicked task  
  * 
  */
- function getNewValueFromEditedTask() {
-
+function getNewValueFromEditedTask() {
     let newTitle = document.getElementById('c-t-title-edit').value;
     let newDescription = document.getElementById('c-t-description-edit').value;
     let newDate = document.getElementById('c-t-date-edit').value;
+    let newStage = liStage;
+    addSubtaskJSON();
 
     downloadedTasks[currentClickedTask]['title'] = newTitle;
     downloadedTasks[currentClickedTask]['description'] = newDescription;
-    checkIfDateEmpty(newDate); 
+    checkIfDateEmpty(newDate);
     downloadedTasks[currentClickedTask]['assingedTo'] = editedNames;
+    if (newStage)
+        downloadedTasks[currentClickedTask]['category'] = newStage;
+    downloadedTasks[currentClickedTask]["subtasks"] = substasksJSON;
     editedNames = []; // clears array for new edit 
     let id = currentClickedTask;
     saveNewOnServer();
@@ -152,7 +156,7 @@ function createAssignedContacs(id) {
  * 
  * @param {string} newDate - contains new selected Date from edit menu 
  */
- function checkIfDateEmpty(newDate)  {
+function checkIfDateEmpty(newDate) {
     if (!newDate == '') {
         downloadedTasks[currentClickedTask]['dueDate'] = newDate;
     }
@@ -164,9 +168,9 @@ function createAssignedContacs(id) {
  */
 function deleteTask() {
     downloadedTasks.splice(currentClickedTask, 1);
-    saveNewOnServer(); 
-    displayAllTasks(); 
-    hideClickedTask(); 
+    saveNewOnServer();
+    displayAllTasks();
+    hideClickedTask();
 }
 
 
@@ -258,7 +262,7 @@ function setStatsBack(prioID) {
  * 
  * @param {string} i - contains i-value from function createSubtasks to be able to access the under subtask
  */
- function updateCheckboxStatus(i) {
+function updateCheckboxStatus(i) {
     let checkbox = document.getElementById(`subtask-id-${currentClickedTask}-${i}`);
     let arrayOfSubtasks = downloadedTasks[currentClickedTask]['subtasks'];
 
@@ -277,7 +281,7 @@ function setStatsBack(prioID) {
 /** function needed to get back from clicked Task
  * 
  */
- function hideClickedTask() {
+function hideClickedTask() {
     document.getElementById('open-clicked-task').style.display = "none";
     document.getElementById('c-t-window').style.display = "none";
 }

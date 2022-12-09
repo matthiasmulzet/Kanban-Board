@@ -7,7 +7,7 @@
  * 
  * 
  */
- function addTaskToKanbanHTML(element) { // element = task[0] or task[1] only filterd in category
+function addTaskToKanbanHTML(element) { // element = task[0] or task[1] only filterd in category
     return `
     <div class="kanban-task-container" draggable="true" ondragstart="startDragging(${element['id']})" onclick="displayClickedTask(id)" id="${element['id']}">
     <div>
@@ -49,7 +49,7 @@
  * 
  *  all @param are explained in function "displayClickedTask()"
  */
- function displayClickedTaskHTML(id, actualSector) {
+function displayClickedTaskHTML(id, actualSector) {
     return document.getElementById('c-t-window').innerHTML = /*html*/`
 
     <img src="../img/edit-icon.png" class="c-t-edit-button" onclick="editClickedTask()">
@@ -129,7 +129,7 @@
  * @param {number} i - hands over from for loop 
  * 
  */
- function createAssignedContacsHTML(i, assignedContacts) {
+function createAssignedContacsHTML(i, assignedContacts) {
     return document.getElementById('c-t-assignedTo').innerHTML += `
             <div class="c-t-contact"> 
                 <div class="c-t-profilimages"> 
@@ -151,8 +151,8 @@
  * @param {*} checked  - contains nothing "" or "true", to show a checked or a unchecked checkbox
  * @param {*} arrayOfSubtasks - contains "downloadedTasks[id]['subtasks']"
  */
- function  createSubtasksHTML(id, i, checked, arrayOfSubtasks){
-    return             document.getElementById('subtasks').innerHTML += `
+function createSubtasksHTML(id, i, checked, arrayOfSubtasks) {
+    return document.getElementById('subtasks').innerHTML += `
     <label class="c-t-checkbox">
         <input type="checkbox" ${checked} id="subtask-id-${id}-${i}" onclick="updateCheckboxStatus(${i})"> 
         <span class="checkmark">${arrayOfSubtasks[i]['subtask']} </span> 
@@ -161,12 +161,11 @@
 }
 
 
- 
+
 /** HTML function to create the editMenu from clickedTask
  * 
  */
- function editClickedTask() {
-
+function editClickedTask() {
     document.getElementById('c-t-window').innerHTML = /*html*/`
     <form onsubmit="getNewValueFromEditedTask(); return false;">
 
@@ -174,68 +173,106 @@
             <img src="../img/black-back-arrow.png"> 
         </div> 
 
-
         <h4> Title </h4> 
         <input placeholder="Enter a title" required id="c-t-title-edit" class="clicked-task-window-edit-input"> 
+
         <h4> Description</h4> 
         <textarea type="text" required placeholder="Enter a Description" id="c-t-description-edit"></textarea> 
+
         <h4> Due date </h4> 
-        <input type="date" id="c-t-date-edit" class="clicked-task-window-edit-input" > 
+        <input type="date" id="c-t-date-edit" class="clicked-task-window-edit-input"> 
+
         <h4> Prio </h4> 
         <div class="c-t-prio-divs-head"> 
             <div class="c-t-prio-divs" onclick="markedPrioCT('Urgent')" id="prio-urgent-c-t-edit">Urgent <img src="../img/arrow_urgent.svg" id="prio-urgent-c-t-edit-img"> </div>  
             <div class="c-t-prio-divs" onclick="markedPrioCT('Medium')" id="prio-medium-c-t-edit">Medium <img src="../img/medium.svg" id="prio-medium-c-t-edit-img" > </div>  
             <div class="c-t-prio-divs" onclick="markedPrioCT('Low')" id="prio-low-c-t-edit">Low    <img src="../img/arrow_low.svg" id="prio-low-c-t-edit-img" > </div>  
         </div>
-        <h4> Assigned to </h4> 
 
-        <div onclick="showContacts()" id="select-div-contact" class="select-div no-margin-bottom">
-                    <span id="selected-contact">Select contacts to assign</span>
-                    <input class="hidden-input" id="hidden-contact-input" type="text" required class="clicked-task-window-edit-input">
-                    <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">
-                </div>
-                <ul id="ul-contact" class="d-none">
-                    <div onclick="selectContact(id)" id="div-contact-1" class="div-li-contact">
-                        <li id="contact-1">Hagen Struve</li>
-                        <input onclick="proofCheck(id), editContacts('Hagen Struve')" class="input-checkbox" type="checkbox" id="checkbox-contact-1">
-                    </div>
-                    <div onclick="selectContact(id)" id="div-contact-2" class="div-li-contact">
-                        <li id="contact-2">Sinan Fischer</li>
-                        <input onclick="proofCheck(id), editContacts('Sinan Fischer')" class="input-checkbox" type="checkbox" id="checkbox-contact-2">
-                    </div>
-                    <div onclick="selectContact(id)" id="div-contact-3" class="div-li-contact">
-                        <li id="contact-3">Matthias Mulzet</li>
-                        <input onclick="proofCheck(id), editContacts('Matthias Mulzet')" class="input-checkbox" type="checkbox" id="checkbox-contact-3">
-                    </div>
-                </ul>
-
-                <div id="all-contacts-initials" class="contact-initials d-none">
-                    <div class="bg-violet d-none" id="initials-1">
-                        <span>HS</span>
-                    </div>
-                    <div class="bg-blue d-none" id="initials-2">
-                        <span>SF</span>
-                    </div>
-                    <div class="bg-green d-none" id="initials-3">
-                        <span>MM</span>
-                    </div>
-                </div>
-    <div class="c-t-ok-edit-button-div"> 
-        <button class="c-t-ok-edit-button" type="submit" name="action" value="edit" >
-            <span> Ok </span> 
-            <img src="../img/done-icon.png">
-        </button>
-    </div>
-    
-    
-    <div class="c-t-remove-edit-button-div"> 
-        <div class="c-t-remove-edit-button" onclick="deleteTask()" >
-            <span> Remove Task </span> 
-            <img src="../img/delete-icon.png">
+        <h4>Stage</h4>
+        <div onclick="showStages()" id="select-div-stage" class="select-div no-margin-bottom">
+            <span id="selected-stage">Select stage</span>
+            <input class="hidden-input" type="text" class="clicked-task-window-edit-input">
+            <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">
         </div>
-    </div> 
+
+        <ul id="ul-stage" class="d-none">
+            <div onclick="selectStage(id)" id="div-to-do" class="div-li-stage">
+                <li id="li-to-do">To Do</li>
+            </div>
+
+            <div onclick="selectStage(id)" id="div-in-progress" class="div-li-stage">
+                <li id="li-in-progress">In progress</li>
+            </div>
+
+            <div onclick="selectStage(id)" id="div-awaiting-feedback" class="div-li-stage">
+                <li id="li-awaiting-feedback">Awaiting Feedback</li>
+            </div>
+
+            <div onclick="selectStage(id)" id="div-done" class="div-li-stage">
+                <li id="li-done">Done</li>
+            </div>
+        </ul>
+
+        <h4> Assigned to </h4> 
+        <div onclick="showContacts()" id="select-div-contact" class="select-div no-margin-bottom">
+            <span id="selected-contact">Select contacts to assign</span>
+            <input class="hidden-input" id="hidden-contact-input" type="text" required class="clicked-task-window-edit-input">
+            <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">
+        </div>
+
+        <ul id="ul-contact" class="d-none">
+            <div onclick="selectContact(id)" id="div-contact-1" class="div-li-contact">
+                <li id="contact-1">Hagen Struve</li>
+                <input onclick="proofCheck(id), editContacts('Hagen Struve')" class="input-checkbox" type="checkbox" id="checkbox-contact-1">
+            </div>
+            <div onclick="selectContact(id)" id="div-contact-2" class="div-li-contact">
+                <li id="contact-2">Sinan Fischer</li>
+                <input onclick="proofCheck(id), editContacts('Sinan Fischer')" class="input-checkbox" type="checkbox" id="checkbox-contact-2">
+            </div>
+            <div onclick="selectContact(id)" id="div-contact-3" class="div-li-contact">
+                <li id="contact-3">Matthias Mulzet</li>
+                <input onclick="proofCheck(id), editContacts('Matthias Mulzet')" class="input-checkbox" type="checkbox" id="checkbox-contact-3">
+            </div>
+        </ul>
+
+        <div id="all-contacts-initials" class="contact-initials d-none">
+            <div class="bg-violet d-none" id="initials-1">
+                <span>HS</span>
+            </div>
+            <div class="bg-blue d-none" id="initials-2">
+                <span>SF</span>
+            </div>
+            <div class="bg-green d-none" id="initials-3">
+                <span>MM</span>
+            </div>
+        </div>
+
+        <h4>Subtasks</h4>
+        <div class="subtask-input-div">
+            <input id="subtask-input" onclick="showXandCheckmark()" type="text" placeholder="Add new subtask">
+            <div id="subtask-icons" onclick="showXandCheckmark()" class="subtask-img-container cursor-pointer">
+                <img id="plus-icon" src="../img/plus-icon.png" alt="plus">
+            </div>
+        </div>
+        <div id="overview-subtasks" class="added-subtasks">
+
+        </div>
+
+        <div class="c-t-remove-ok-buttons"> 
+            <button class="c-t-delete-edit-button" onclick="deleteTask()" >
+                <span> Delete Task </span> 
+                <img src="../img/delete-icon.png">
+            </button>
+
+            <button class="c-t-ok-edit-button" type="submit" name="action" value="edit" >
+                <span> Ok </span> 
+                <img src="../img/done-icon.png">
+            </button>
+        </div>
     <form> 
     `;
+    document.getElementById("c-t-date-edit").valueAsDate = new Date();
 }
 
 
@@ -244,8 +281,8 @@
  * @param {array} element - contains array path to current processing task 
  * @param {*} pixels - sets pixels for the staggered design for the profile pictures
  */
- function createAssignedContacsOnBoardHTML(element, pixels) {
-    return    document.getElementById(`assigned-employees-board-${element['id']}`).innerHTML += `
+function createAssignedContacsOnBoardHTML(element, pixels) {
+    return document.getElementById(`assigned-employees-board-${element['id']}`).innerHTML += `
     <div class="c-t-profilimages" style="right:${pixels}px"> 
         <span id="initials-${element['id']}-${i}">  
 
