@@ -139,6 +139,7 @@ async function addTask() {
     let title = document.getElementById('title');
     let descripton = document.getElementById('descripton');
     let dueDate = document.getElementById('dueDate');
+    let colorPoint = document.getElementById('color-point-${colorPointClass}');
     let sector = liCategory;
     pushContacts();
     pushPrio();
@@ -147,6 +148,7 @@ async function addTask() {
     saveOnServer();
     forwardToBoard();
     clearPage();
+    console.log(newTask);
     createdTasks++;
 }
 
@@ -164,6 +166,8 @@ function setNewTask(title, descripton, sector, dueDate) {
         "prio": actualPrio,
         "subtasks": substasksJSON
     };
+    if (colorPoint)
+        newTask['bgColorPoint'] = colorPoint;
     downloadedTasks.push(newTask);
 }
 
@@ -230,7 +234,7 @@ function forwardToBoard() {
 
 
 async function loadTasksFromServer() {
-    setURL("https://gruppe-313.developerakademie.net/Join-Gruppenarbeit/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
     await downloadFromServer();
     downloadedTasks = JSON.parse(backend.getItem('downloadedTasks')) || [];
 }
@@ -241,7 +245,7 @@ async function loadTasksFromServer() {
  * 
  */
 async function saveOnServer() {
-    setURL("https://gruppe-313.developerakademie.net/Join-Gruppenarbeit/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
     await backend.setItem('downloadedTasks', JSON.stringify(downloadedTasks));
 }
 

@@ -3,7 +3,7 @@
 
 ########### CONFIG ###############
 $email = $_POST['email'];
-$link = 'https://gruppe-313.developerakademie.net/Join-Gruppenarbeit/html/reset_password.html?'.$email;
+$link = 'https://matthias-mulzet.developerakademie.net/Join/html/reset_password.html?'.$email;
 $redirect = 'html/login.html';
 
 ########### CONFIG END ###########

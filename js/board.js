@@ -27,7 +27,6 @@ async function initBoard() {
     renderBoardSite();
     checkResponsive();
     sidebarBgPage();
-    console.log(colorPoint);
 }
 
 
@@ -39,7 +38,7 @@ async function renderBoardSite() {
 
 
 async function loadTasksFromServer() {
-    setURL("https://gruppe-313.developerakademie.net/Join-Gruppenarbeit/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
     await downloadFromServer();
     downloadedTasks = JSON.parse(backend.getItem('downloadedTasks')) || [];
     users = JSON.parse(backend.getItem('users')) || [];
@@ -48,7 +47,7 @@ async function loadTasksFromServer() {
 
 
 async function saveNewOnServer() {
-    setURL("https://gruppe-313.developerakademie.net/Join-Gruppenarbeit/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
     await backend.setItem('downloadedTasks', JSON.stringify(downloadedTasks));
     await backend.setItem('tasksOverview', JSON.stringify(tasksOverview));
 }
@@ -153,6 +152,9 @@ function setColor(categoryID, classID, c) {
     if (innerHTML === 'media') {
         getID.classList.add("yellow");
     }
+    else {
+        console.log(downloadedTasks[currentClickedTask]['bgColorPoint']);
+    }
 
 }
 
@@ -185,7 +187,6 @@ function setColorCT() {
     }
     else {
         getID.style.classList.add(`${colorPoint}`);
-        console.log(colorPoint);
     }
 }
 
