@@ -141,10 +141,9 @@ function setColor(categoryID, classID, c) {
 
     let innerHTML = document.getElementById(`${categoryID}${c}`).innerHTML;
     let getID = document.getElementById(`${classID}${c}`);
+    console.log('innerHTML', innerHTML);
+    console.log('getID', getID);
 
-    if (innerHTML === 'design') {
-        getID.classList.add("orange");
-    }
     if (innerHTML === 'sales') {
         getID.classList.add("pink");
     }
@@ -157,6 +156,9 @@ function setColor(categoryID, classID, c) {
     if (innerHTML === 'media') {
         getID.classList.add("yellow");
     }
+    // else {
+    //     getID.classList.add("");
+    // }
 }
 
 

@@ -11,6 +11,7 @@ let liContact;
 let liStage;
 let twoSubtaskIcons = false;
 let substasksJSON = [];
+let dontOpenUlCategory = false;
 
 
 
@@ -307,11 +308,17 @@ function generateDate() {
  * by clicking on a button, a list with selections is shown or hidden
  */
 function showCategories() {
+    let categoryColorPoints = document.getElementById('all-category-points');
     let ulCategory = document.getElementById("ul-category");
-    if (ulCategory.classList.contains('d-none'))
+    if (dontOpenUlCategory)
+        hideSelectionCategories(ulCategory);
+    else if (ulCategory.classList.contains('d-none') && categoryColorPoints.classList.contains('d-none'))
         showSelectionCategories(ulCategory);
     else
         hideSelectionCategories(ulCategory);
+    setTimeout(() => {
+        dontOpenUlCategory = false;
+    }, 100);
 }
 
 
@@ -369,6 +376,7 @@ function selectCategory(id) {
     let ulCategory = document.getElementById("ul-category");
     let category = document.getElementById(id).innerHTML;
     showSelectedCategory(category, liCategory);
+    dontOpenUlCategory = false;
     hideSelectionCategories(ulCategory);
 }
 
@@ -419,6 +427,45 @@ function showStages() {
         ulStage.classList.add('d-none');
         document.getElementById("select-div-stage").classList.remove('no-border-bottom');
     }
+}
+
+
+function addOwnCategory(id) {
+    let newCategory = document.getElementById('category-input');
+    if (newCategory.value.length >= 1) {
+        let idNewCategory = newCategory.value.toLowerCase();
+        document.getElementById('select-div-category').innerHTML = /*html*/ `
+        <span id="selected-category"> 
+            <li id="${idNewCategory}"> ${newCategory.value} </li>
+        </span>
+        <input class="hidden-input" id="hidden-category-input" type="text" required>
+        <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">`;
+        if (id) {
+            let colorPointClass = id.replace('point', 'bg');
+            document.getElementById('selected-category').innerHTML += /*html*/ `
+                <div class="li-point ${colorPointClass}"></div>`;
+        }
+        else {
+            document.getElementById('selected-category').innerHTML += /*html*/ `
+            <div class="li-point bg-dark-pink"></div>`;
+        }
+        document.getElementById('all-category-points').classList.add('d-none');
+        dontOpenUlCategory = true;
+
+
+        document.getElementById('selected-category').style = 'display: flex; align-items: center; list-style-type: none;';
+
+        document.getElementById("hidden-category-input").value = '.';
+        document.getElementById(idNewCategory).style = 'margin:0; margin-right: 20px';
+        liCategory = idNewCategory;
+    }
+}
+
+
+function selectColorPoint(id) {
+    let newCategory = document.getElementById('category-input');
+    if (newCategory.value.length >= 1)
+        addOwnCategory(id);
 }
 
 
@@ -493,9 +540,9 @@ function noPersonSelected(initial1, initial2, initial3) {
  */
 function showInputCategory() {
     document.getElementById('select-div-category').innerHTML = /*html*/ `
-        <input class="select-category-input" type="text" placeholder="New category name">
+        <input id="category-input" class="select-category-input" type="text" placeholder="New category name">
         <img onclick="closeInputCategory()" id="close-icon" src="../img/close-icon.png" alt="close">
-        <img onclick="addSubtask()" id="checkmark-icon" class="" src="../img/checkmark.png" alt="checkmark">`;
+        <img onclick="addOwnCategory()" id="checkmark-icon" class="" src="../img/checkmark.png" alt="checkmark">`;
     document.getElementById('ul-category').classList.add('d-none');
     document.getElementById("select-div-category").classList.remove('no-border-bottom');
     document.getElementById('all-category-points').classList.remove('d-none');
