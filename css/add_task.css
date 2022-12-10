@@ -277,27 +277,27 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .bg-pink {
-    background-color: #FC71FF;
+    background-color: #FC71FF !important;
 }
 
 .bg-dark-pink {
-    background-color: #660033;
+    background-color: #660033 !important;
 }
 
 .bg-turquoise {
-    background-color: #1FD7C1;
+    background-color: #1FD7C1 !important;
 }
 
 .bg-blue {
-    background-color: #0038FF;
+    background-color: #0038FF !important;
 }
 
 .bg-light-blue {
-    background-color: #6666FF;
+    background-color: #6666FF !important;
 }
 
 .bg-violet {
-    background-color: #AE9EE5;
+    background-color: #AE9EE5 !important;
 }
 
 .subtask-input-div {

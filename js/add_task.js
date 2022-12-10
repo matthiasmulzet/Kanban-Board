@@ -12,8 +12,7 @@ let liStage;
 let twoSubtaskIcons = false;
 let substasksJSON = [];
 let dontOpenUlCategory = false;
-
-
+let colorPoint;
 
 /**
  * checks if the input field from the subtask is checked, push subtask and if checked or not
@@ -444,6 +443,7 @@ function addOwnCategory(id) {
             let colorPointClass = id.replace('point', 'bg');
             document.getElementById('selected-category').innerHTML += /*html*/ `
                 <div class="li-point ${colorPointClass}"></div>`;
+            colorPoint = colorPointClass;
         }
         else {
             document.getElementById('selected-category').innerHTML += /*html*/ `

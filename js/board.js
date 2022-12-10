@@ -1,4 +1,3 @@
-
 let existTasks = 0; // id assigner for downloaded Tasks. 
 let currentDraggedElement;  // contains the ID of current dragged element
 let NumberOfCurrentTasks = 0; // is needed to differ between the tasks
@@ -28,7 +27,7 @@ async function initBoard() {
     renderBoardSite();
     checkResponsive();
     sidebarBgPage();
-
+    console.log(colorPoint);
 }
 
 
@@ -141,8 +140,6 @@ function setColor(categoryID, classID, c) {
 
     let innerHTML = document.getElementById(`${categoryID}${c}`).innerHTML;
     let getID = document.getElementById(`${classID}${c}`);
-    console.log('innerHTML', innerHTML);
-    console.log('getID', getID);
 
     if (innerHTML === 'sales') {
         getID.classList.add("pink");
@@ -156,9 +153,7 @@ function setColor(categoryID, classID, c) {
     if (innerHTML === 'media') {
         getID.classList.add("yellow");
     }
-    // else {
-    //     getID.classList.add("");
-    // }
+
 }
 
 
@@ -176,9 +171,6 @@ function setColorCT() {
     innerHTML = innerHTML.toLowerCase();
     let getID = document.getElementById('c-t-category');
 
-    if (innerHTML === 'design') {
-        getID.style.color = "rgba(255, 122, 0, 1)";
-    }
     if (innerHTML === 'sales') {
         getID.style.background = " rgba(252, 113, 255, 1)";
     }
@@ -190,6 +182,10 @@ function setColorCT() {
     }
     if (innerHTML === 'media') {
         getID.style.background = "rgba(255, 199, 1, 1)";
+    }
+    else {
+        getID.style.classList.add(`${colorPoint}`);
+        console.log(colorPoint);
     }
 }
 
