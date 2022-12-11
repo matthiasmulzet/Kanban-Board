@@ -1,3 +1,8 @@
+body {
+    margin: 0;
+    font-family: 'Inter';
+}
+
 :root {
     --width-task-size: 250px;
     /* use for sizing tasks */

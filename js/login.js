@@ -72,7 +72,6 @@ function addUser() {
 
     users.push({ name: name.value, email: email.value, password: password.value });
     backend.setItem('users', JSON.stringify(users));
-    console.log(users);
 }
 
 

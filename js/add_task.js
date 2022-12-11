@@ -139,7 +139,6 @@ async function addTask() {
     saveOnServer();
     forwardToBoard();
     clearPage();
-    console.log(newTask);
     createdTasks++;
 }
 
