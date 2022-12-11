@@ -15,13 +15,9 @@ let tasksOverview = [{
 
 /** 
  * filters tasks-json and displays them assigned on board site
- * 
  * @param {string} todos - and other subvariables descripe the filter code to extract which task is in which category 
- * 
  * @param {string} element - tells html code which json array part need to be shown
- * 
  */
-
 async function initBoard() {
     await includeHTML();
     renderBoardSite();
@@ -52,8 +48,8 @@ async function saveNewOnServer() {
     await backend.setItem('tasksOverview', JSON.stringify(tasksOverview));
 }
 
+
 /** function switches add icon aside categorys to blue 
- * 
  * @param {string} id - contains id for add icon on boardview aside categorys (to-do / inProgres...) 
  */
 function switchAddIcon(id) {
@@ -62,7 +58,6 @@ function switchAddIcon(id) {
 
 
 /** function switches add icon aside categorys to black again 
- * 
  * @param {string} id - contains id for add icon on boardview aside categorys (to-do / inProgres...) 
  */
 function switchAddIconBack(id) {
@@ -71,7 +66,6 @@ function switchAddIconBack(id) {
 
 
 /** updates the id from every task
- * 
  */
 function pushIDtoTasks() {
     downloadedTasks[existTasks]['id'] = existTasks;
@@ -105,57 +99,54 @@ function startDragging(id) {
 
 
 /** Function assigns the corresponding colors to the appropriate categories
- * 
  * @param {string} innerHTML - variable checks what the task-category is
- *
  * @param {string} classID - hands over ID for Category Div to add the class specific color
- * 
  * @param {string} categoryID - hands over ID for HTHML inside Category Div  
- * 
-
  *  setColorCT does the same, but changes Color on clicked Task view
  */
 function setColorTypeTasks(categoryID, classID) {
     for (let c = 0; c < NumberOfCurrentTasks; c++) {
-        if (categoryID === classID) {
+        if (categoryID === classID)
             setColor(categoryID, classID, c);
-        }
-        else {
+        else
             setColorCT(categoryID, classID, c);
-        }
     }
 }
 
 
 /** responsible to set the correct color for the specific Category
- * 
  * @param {string} innerHTML - variable checks what the task-category is
- *
  * @param {string} classID - hands over ID for Category Div to add the class specific color
- * 
  * @param {string} categoryID - hands over ID for HTHML inside Category Div  
  */
 function setColor(categoryID, classID, c) {
-
     let innerHTML = document.getElementById(`${categoryID}${c}`).innerHTML;
     let getID = document.getElementById(`${classID}${c}`);
-
-    if (innerHTML === 'sales') {
+    if (innerHTML === 'sales')
         getID.classList.add("pink");
-    }
-    if (innerHTML === 'backoffice') {
+    if (innerHTML === 'backoffice')
         getID.classList.add("cyan");
-    }
-    if (innerHTML === 'marketing') {
+    if (innerHTML === 'marketing')
         getID.classList.add("blue");
-    }
-    if (innerHTML === 'media') {
+    if (innerHTML === 'media')
         getID.classList.add("yellow");
-    }
-    else {
-        console.log(downloadedTasks[currentClickedTask]['bgColorPoint']);
-    }
+    else
+        setColorForOwnCategory(innerHTML, getID);
+}
 
+
+/**
+ * @param {string} innerHTML - variable checks what the task-category is
+ * @param {*} getID - span where the sector name will be shown
+ */
+function setColorForOwnCategory(innerHTML, getID) {
+    for (let i = 0; i < downloadedTasks.length; i++) {
+        const task = downloadedTasks[i];
+        if (task['sector'] == innerHTML) {
+            if (getID.innerHTML == innerHTML)
+                getID.classList.add(task['bgColorPoint']);
+        }
+    }
 }
 
 
@@ -168,37 +159,29 @@ function setColor(categoryID, classID, c) {
  * work
  */
 function setColorCT() {
-
     let innerHTML = document.getElementById('c-t-category-html').innerHTML;
     innerHTML = innerHTML.toLowerCase();
     let getID = document.getElementById('c-t-category');
 
-    if (innerHTML === 'sales') {
+    if (innerHTML === 'sales')
         getID.style.background = " rgba(252, 113, 255, 1)";
-    }
-    if (innerHTML === 'backoffice') {
+    if (innerHTML === 'backoffice')
         getID.style.background = "rgba(31, 215, 193, 1)";
-    }
-    if (innerHTML === 'marketing') {
+    if (innerHTML === 'marketing')
         getID.style.background = "rgba(0, 56, 255, 1)";
-    }
-    if (innerHTML === 'media') {
+    if (innerHTML === 'media')
         getID.style.background = "rgba(255, 199, 1, 1)";
-    }
-    else {
-        getID.style.classList.add(`${colorPoint}`);
-    }
+    else
+        getID.classList.add(downloadedTasks[currentClickedTask]['bgColorPoint']);
 }
 
 
 /**gets Value of Input Field "search Task" and hands over to displayAllTasks() // which leads to display only tasks that match the search 
- * 
  * @param {string} search - contains value of input field "search Task"
  */
 function searchTask() {
     let search = document.getElementById('input-search').value;
     search = search.toLowerCase();
-
     displayAllTasks(search);
 }
 
@@ -212,9 +195,7 @@ function searchTask() {
  *                               then use (join) to get back the array into a string.
  */
 function getFirstLetter(id, i) {
-
     let assignedContact = downloadedTasks[id]['assingedTo'];
-
     let initials = assignedContact[i].split(' ').map(word => word.charAt(0)).join('');
     document.getElementById(`c-t-initials${i}`).innerHTML = `${initials}`;
 }
@@ -229,17 +210,12 @@ function getFirstLetter(id, i) {
  *                               then use (join) to get back the array into a string.
  */
 function getFirstLetterMain(element) {
-
     let assignedContacts = element['assingedTo'];
-
     for (let w = 0; w <= assignedContacts.length - 1; w++) {
-
         let initials = assignedContacts[w].split(' ').map(word => word.charAt(0)).join('');
         document.getElementById(`initials-${element['id']}-${w}`).innerHTML = `${initials}`;
-
     }
 }
-
 
 
 /** to hide the ADDTask board menu!
@@ -256,15 +232,14 @@ function hideClickedAddTask() {
 
 /**
  * loads the current date into the input field
- *
  */
 function generateDate() {
     document.getElementById("dueDate").valueAsDate = new Date();
 }
 
 
-/** to show the add task window on board site
- * 
+/**
+ *  to show the add task window on board site
  */
 function displayAddTaskWindow() {
     document.getElementById('c-t-addtask-window').style.display = "flex";
@@ -278,30 +253,18 @@ let myMediaQuery570 = window.matchMedia('(min-width:570px)');
 myMediaQuery1400.addListener(checkResponsive); // addListener prüft bei änderung der Bildschirmgröße ob mediaQuerry noch zutrifft oder nicht
 
 /** starts the needed view related html code for responsive 
- * 
  *  @param {string} id - needed to difference between create responsive and delete
- * 
  *  @param {string} id2 - needed to difference between create responsive and delete ( needed reversed)
  */
 function checkResponsive() {
     if (myMediaQuery1400.matches) { //if higher than 1400px
-        let id = '';
-        let id2 = '-responsive';
-        // startResponsiveBoardView(id, id2);
-        generateSearchFieldHTML(id);
-        deleteSearchFíeldHTML(id2);
+        changeIdToResponsiveId();
         document.getElementById("kanban-overview").style.flexDirection = "row";
     }
-
     else {  //if not
-        let id = '-responsive';
-        let id2 = '';
-        //startResponsiveBoardView(id, id2);
-        generateSearchFieldHTML(id);
-        deleteSearchFíeldHTML(id2);
+        changeIdToResponsiveId();
         document.getElementById("kanban-overview").style.flexDirection = "column";
     }
-
 }
 
 
@@ -316,12 +279,18 @@ function generateSearchFieldHTML(id) {
 
 
 /** deletes content for responsive, so that only the desktop or mobile content is displayed
- * 
  */
 function deleteSearchFíeldHTML(id2) {
     document.getElementById(`find-task${id2}`).innerHTML = '';
 }
 
+
+function changeIdToResponsiveId() {
+    let id = '-responsive';
+    let id2 = '';
+    generateSearchFieldHTML(id);
+    deleteSearchFíeldHTML(id2);
+}
 
 
 function editContacts(name) {
@@ -338,7 +307,6 @@ function editContacts(name) {
 /**
 * by clicking on a button, a list with selections is shown
  * or hidden
- * 
  */
 function showContacts() {
     let ulContact = document.getElementById("ul-contact");
@@ -349,11 +317,11 @@ function showContacts() {
     else {
         hideSelectionContacts(ulContact);
         document.getElementById('all-contacts-initials').classList.remove('d-none');
-        if (noSelectedContacts()) {
+        if (noSelectedContacts())
             document.getElementById('all-contacts-initials').classList.add('d-none');
-        }
     }
 }
+
 
 function noSelectedContacts() {
     return document.getElementById("hidden-contact-input").value == ''
@@ -373,7 +341,6 @@ function showSelectionContacts(ulContact) {
 
 /**
  * the selection of contacts disappears
- * 
  * @param {string} ulContact -id of the contact container
  */
 function hideSelectionContacts(ulContact) {
@@ -389,26 +356,20 @@ function hideSelectionContacts(ulContact) {
 function proofCheck(id) {
     let isChecked = document.getElementById(id);
     let initial = id.replace('checkbox-contact', 'initials');
-
     let initial1 = document.getElementById('initials-1');
     let initial2 = document.getElementById('initials-2');
     let initial3 = document.getElementById('initials-3');
-
     showOrHideInitials(isChecked, initial, initial1, initial2, initial3);
 }
 
 
 function showOrHideInitials(isChecked, initial, initial1, initial2, initial3) {
-    if (isChecked.checked == true) {
+    if (isChecked.checked == true)
         showInitials(initial);
-    }
-    else {
+    else
         hideInitials(initial);
-    }
-
-    if (initial1.classList.contains('d-none') && initial2.classList.contains('d-none') && initial3.classList.contains('d-none')) {
+    if (initial1.classList.contains('d-none') && initial2.classList.contains('d-none') && initial3.classList.contains('d-none'))
         document.getElementById("hidden-contact-input").value = '';
-    }
 }
 
 
@@ -425,7 +386,6 @@ function hideInitials(initial) {
 
 /**
  * function for selecting the contact
- * 
  * @param {string} id - selected contact
  */
 function selectContact(id) {

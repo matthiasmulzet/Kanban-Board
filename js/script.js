@@ -39,28 +39,28 @@ function showLogOut() {
  * sets the Background color of the selected page in the sidebar dark blue
  */
 function sidebarBgPage() {
-    if (location.pathname == "/Join-Gruppenarbeit/html/summary.html") {
+    if (location.pathname == "/Join/html/summary.html") {
         document.getElementById('summary').style = 'background: #091931; !important';
     }
 
-    else if (location.pathname == "/Join-Gruppenarbeit/html/board.html") {
+    else if (location.pathname == "/Join/html/board.html") {
         document.getElementById('sidebar-board').style = 'background: #091931; !important';
     }
 
-    else if (location.pathname == "/Join-Gruppenarbeit/html/add_task.html") {
+    else if (location.pathname == "/Join/html/add_task.html") {
         showCreateTaskResponsive();
         document.getElementById('add-task').style = 'background: #091931; !important';
     }
 
-    else if (location.pathname == "/Join-Gruppenarbeit/html/contacts.html") {
+    else if (location.pathname == "/Join/html/contacts.html") {
         document.getElementById('contacts').style = 'background: #091931; !important';
     }
 
-    else if (location.pathname == "/Join-Gruppenarbeit/html/legal_notice.html") {
+    else if (location.pathname == "/Join/html/legal_notice.html") {
         document.getElementById('legal-notice').style = 'background: #091931; !important';
     }
 
-    else if (location.pathname == "/Join-Gruppenarbeit/html/privacy.html") {
+    else if (location.pathname == "/Join/html/privacy.html") {
         document.getElementById('privacy').style = 'background: #091931; !important';
     }
 }

@@ -14,6 +14,7 @@ let substasksJSON = [];
 let dontOpenUlCategory = false;
 let colorPoint;
 
+
 /**
  * checks if the input field from the subtask is checked, push subtask and if checked or not
  * in subtasksJSON
@@ -48,7 +49,6 @@ async function initAddTask() {
 /**
  * empties the array prio and activates a function around the
  * to mark the urgency of the task
- * 
  * @param {string} id -Variable for the respective button
  */
 function markedPrio(id) {
@@ -60,28 +60,23 @@ function markedPrio(id) {
 
 /**
  * activates a function with the selected id
- * 
  * @param {string} id -Variable for the respective button
  */
 function changeBg(id) {
     let urgent = document.getElementById('prio-urgent');
     let medium = document.getElementById('prio-medium');
     let low = document.getElementById('prio-low');
-    if (id == 'prio-urgent') {
+    if (id == 'prio-urgent')
         changeBgUrgent(urgent, medium, low);
-    }
-    if (id == 'prio-medium') {
+    if (id == 'prio-medium')
         changeBgMedium(urgent, medium, low);
-    }
-    if (id == 'prio-low') {
+    if (id == 'prio-low')
         changeBgLow(urgent, medium, low);
-    }
 }
 
 
 /**
  * marks the priority of the task by changing the classes
- *
  * @param {*} urgent -stands for very important
  * @param {*} medium -stands for important
  * @param {*} low -stands for not so important
@@ -98,7 +93,6 @@ function changeBgUrgent(urgent, medium, low) {
 
 /**
  * marks the priority of the task by changing the classes
- * 
  * @param {*} urgent -stands for very important
  * @param {*} medium -stands for important
  * @param {*} low -stands for not so important
@@ -115,7 +109,6 @@ function changeBgMedium(urgent, medium, low) {
 
 /**
  * marks the priority of the task by changing the classes
- * 
   * @param {*} urgent -stands for very important
  * @param {*} medium -stands for important
  * @param {*} low -stands for not so important
@@ -133,13 +126,11 @@ function changeBgLow(urgent, medium, low) {
 /**
  * triggered by a button, the information entered is bundled in a JSON
  * pushed and functions for storing the JSON on the server are triggered
- * 
  */
 async function addTask() {
     let title = document.getElementById('title');
     let descripton = document.getElementById('descripton');
     let dueDate = document.getElementById('dueDate');
-    let colorPoint = document.getElementById('color-point-${colorPointClass}');
     let sector = liCategory;
     pushContacts();
     pushPrio();
@@ -176,38 +167,29 @@ function pushPrio() {
     let urgent = document.getElementById('prio-urgent');
     let medium = document.getElementById('prio-medium');
     let low = document.getElementById('prio-low');
-    if (urgent.classList.contains('bg-orange')) {
+    if (urgent.classList.contains('bg-orange'))
         actualPrio = 'Urgent';
-    }
-    if (medium.classList.contains('bg-yellow')) {
+    if (medium.classList.contains('bg-yellow'))
         actualPrio = 'Medium';
-    }
-    if (low.classList.contains('bg-green')) {
+    if (low.classList.contains('bg-green'))
         actualPrio = 'Low';
-    }
     prio.push(actualPrio);
 }
 
 
 
 function pushContacts() {
-    if (document.getElementById('checkbox-contact-1').checked) {
+    if (document.getElementById('checkbox-contact-1').checked)
         contacts.push(document.getElementById('contact-1').innerHTML);
-    }
-
-    if (document.getElementById('checkbox-contact-2').checked) {
+    if (document.getElementById('checkbox-contact-2').checked)
         contacts.push(document.getElementById('contact-2').innerHTML);
-    }
-
-    if (document.getElementById('checkbox-contact-3').checked) {
+    if (document.getElementById('checkbox-contact-3').checked)
         contacts.push(document.getElementById('contact-3').innerHTML);
-    }
 }
 
 
 /**
  * deletes the marking of the contact
- * 
  */
 function clearContacts() {
     for (let i = 1; i < 4; i++) {
@@ -242,7 +224,6 @@ async function loadTasksFromServer() {
 
 /**
  * save function on the server
- * 
  */
 async function saveOnServer() {
     setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
@@ -252,7 +233,6 @@ async function saveOnServer() {
 
 /**
  * clears the input fields and entries
- * 
  */
 function clearPage() {
     showDefaultPrioImgs();
@@ -300,7 +280,6 @@ function removeBgPrio() {
 
 /**
  * loads the current date into the input field
- *
  */
 function generateDate() {
     document.getElementById("dueDate").valueAsDate = new Date();
@@ -327,7 +306,6 @@ function showCategories() {
 
 /**
  * a selection of categories is presented
- * 
  * @param {string} ulCategory -id of the respective category
  */
 function showSelectionCategories(ulCategory) {
@@ -338,7 +316,6 @@ function showSelectionCategories(ulCategory) {
 
 /**
  * a selection of categories is hidden
- * 
  * @param {string} ulCategory -Choice of categories
  */
 function hideSelectionCategories(ulCategory) {
@@ -349,7 +326,6 @@ function hideSelectionCategories(ulCategory) {
 
 /**
  * a selection of contacts is shown
- * 
  * @param {string} ulContact -id of the contact container
  */
 function showSelectionContacts(ulContact) {
@@ -360,7 +336,6 @@ function showSelectionContacts(ulContact) {
 
 /**
  * the selection of contacts disappears
- * 
  * @param {string} ulContact -id of the contact container
  */
 function hideSelectionContacts(ulContact) {
@@ -371,7 +346,6 @@ function hideSelectionContacts(ulContact) {
 
 /**
 * Category selection function
- *
  * @param {string} id - selected category
  */
 function selectCategory(id) {
@@ -386,7 +360,6 @@ function selectCategory(id) {
 
 /**
  * Function to make the selected category visible
- *
  * @param {string} category - selected category
  * @param {string} liCategory -replaced content from the id of the selected category
  */
@@ -401,7 +374,6 @@ function showSelectedCategory(category, liCategory) {
 /**
 * by clicking on a button, a list with selections is shown
  * or hidden
- * 
  */
 function showContacts() {
     let ulContact = document.getElementById("ul-contact");
@@ -412,9 +384,8 @@ function showContacts() {
     else {
         hideSelectionContacts(ulContact);
         document.getElementById('all-contacts-initials').classList.remove('d-none');
-        if (document.getElementById("hidden-contact-input").value == '') {
+        if (document.getElementById("hidden-contact-input").value == '')
             document.getElementById('all-contacts-initials').classList.add('d-none');
-        }
     }
 }
 
@@ -425,7 +396,6 @@ function showStages() {
         ulStage.classList.remove('d-none');
         document.getElementById("select-div-stage").classList.add('no-border-bottom');
     }
-
     else {
         ulStage.classList.add('d-none');
         document.getElementById("select-div-stage").classList.remove('no-border-bottom');
@@ -437,32 +407,51 @@ function addOwnCategory(id) {
     let newCategory = document.getElementById('category-input');
     if (newCategory.value.length >= 1) {
         let idNewCategory = newCategory.value.toLowerCase();
-        document.getElementById('select-div-category').innerHTML = /*html*/ `
+        showOwnCategoryInInputField(newCategory, idNewCategory);
+        setColorPoints(id);
+        styleOwnCategoryInputField(idNewCategory);
+        dontOpenUlCategory = true;
+        liCategory = idNewCategory;
+    }
+}
+
+
+/**
+ * @param {<input>} newCategory input tag where you can type in your own category
+ * @param {string} idNewCategory what you typed in input category field
+ */
+function showOwnCategoryInInputField(newCategory, idNewCategory) {
+    document.getElementById('select-div-category').innerHTML = /*html*/ `
         <span id="selected-category"> 
-            <li id="${idNewCategory}"> ${newCategory.value} </li>
+            <li id="${idNewCategory}" class="own-category-input"> ${newCategory.value} </li>
         </span>
         <input class="hidden-input" id="hidden-category-input" type="text" required>
         <img src="../img/dropdown_arrow.svg" alt="dropdown_arrow">`;
-        if (id) {
-            let colorPointClass = id.replace('point', 'bg');
-            document.getElementById('selected-category').innerHTML += /*html*/ `
-                <div class="li-point ${colorPointClass}"></div>`;
-            colorPoint = colorPointClass;
-        }
-        else {
-            document.getElementById('selected-category').innerHTML += /*html*/ `
-            <div class="li-point bg-dark-pink"></div>`;
-        }
-        document.getElementById('all-category-points').classList.add('d-none');
-        dontOpenUlCategory = true;
+}
 
 
-        document.getElementById('selected-category').style = 'display: flex; align-items: center; list-style-type: none;';
+/**
+ * @param {string} id from the color points category div container 
+ */
+function setColorPoints(id) {
+    if (id)
+        showSelectedPointInInputField(id);
+    else
+        showDefaultPointInInputField();
+}
 
-        document.getElementById("hidden-category-input").value = '.';
-        document.getElementById(idNewCategory).style = 'margin:0; margin-right: 20px';
-        liCategory = idNewCategory;
-    }
+
+function showSelectedPointInInputField(id) {
+    let colorPointClass = id.replace('point', 'bg');
+    document.getElementById('selected-category').innerHTML += /*html*/ `
+        <div class="li-point ${colorPointClass}"></div>`;
+    colorPoint = colorPointClass;
+}
+
+
+function showDefaultPointInInputField() {
+    document.getElementById('selected-category').innerHTML += /*html*/ `
+    <div class="li-point bg-dark-pink"></div>`;
 }
 
 
@@ -470,6 +459,17 @@ function selectColorPoint(id) {
     let newCategory = document.getElementById('category-input');
     if (newCategory.value.length >= 1)
         addOwnCategory(id);
+}
+
+
+/**
+ * @param {string} idNewCategory what you typed in input category field
+ */
+function styleOwnCategoryInputField(idNewCategory) {
+    document.getElementById('all-category-points').classList.add('d-none');
+    document.getElementById('selected-category').style = 'display: flex; align-items: center; list-style-type: none;';
+    document.getElementById("hidden-category-input").value = '.';
+    document.getElementById(idNewCategory).style = 'margin:0; margin-right: 20px';
 }
 
 
@@ -510,11 +510,9 @@ function selectContact(id) {
 function proofCheck(id) {
     let isChecked = document.getElementById(id);
     let initial = id.replace('checkbox-contact', 'initials');
-
     let initial1 = document.getElementById('initials-1');
     let initial2 = document.getElementById('initials-2');
     let initial3 = document.getElementById('initials-3');
-
     setValueInitials(isChecked, initial, initial1, initial2, initial3)
 }
 
@@ -524,13 +522,10 @@ function setValueInitials(isChecked, initial, initial1, initial2, initial3) {
         document.getElementById(initial).classList.remove('d-none');
         document.getElementById("hidden-contact-input").value = '.';
     }
-    else {
+    else
         document.getElementById(initial).classList.add('d-none');
-    }
-
-    if (noPersonSelected(initial1, initial2, initial3)) {
+    if (noPersonSelected(initial1, initial2, initial3))
         document.getElementById("hidden-contact-input").value = '';
-    }
 }
 
 
@@ -545,8 +540,8 @@ function noPersonSelected(initial1, initial2, initial3) {
 function showInputCategory() {
     document.getElementById('select-div-category').innerHTML = /*html*/ `
         <input id="category-input" class="select-category-input" type="text" placeholder="New category name">
-        <img onclick="closeInputCategory()" id="close-icon" src="../img/close-icon.png" alt="close">
-        <img onclick="addOwnCategory()" id="checkmark-icon" class="" src="../img/checkmark.png" alt="checkmark">`;
+        <img onclick="closeInputCategory()" class="close-icon" src="../img/close-icon.png" alt="close">
+        <img onclick="addOwnCategory()" class="checkmark-icon" src="../img/checkmark.png" alt="checkmark">`;
     document.getElementById('ul-category').classList.add('d-none');
     document.getElementById("select-div-category").classList.remove('no-border-bottom');
     document.getElementById('all-category-points').classList.remove('d-none');
@@ -571,14 +566,12 @@ function closeInputCategory() {
 function showXandCheckmark() {
     if (twoSubtaskIcons == false) {
         document.getElementById('subtask-icons').innerHTML = /*html*/ `
-        <img onclick="closeSubtask()" id="close-icon" src="../img/close-icon.png" alt="close">
-        <img onclick="addSubtask()" id="checkmark-icon" src="../img/checkmark.png" alt="checkmark">`;
+        <img onclick="closeSubtask()" id="close-icon" class="close-icon" src="../img/close-icon.png" alt="close">
+        <img onclick="addSubtask()" id="checkmark-icon" class="checkmark-icon" src="../img/checkmark.png" alt="checkmark">`;
         twoSubtaskIcons = true;
     }
-
-    else {
+    else
         twoSubtaskIcons = false;
-    }
 }
 
 
@@ -614,7 +607,6 @@ function showAllSubtasks() {
     allSubtasks.innerHTML = '';
     for (let i = 0; i < subtasks.length; i++) {
         const subtask = subtasks[i];
-
         allSubtasks.innerHTML += newSubtaskTemplate(i, subtask);
     }
 }
@@ -622,7 +614,6 @@ function showAllSubtasks() {
 
 /**
  * HTML part of function showAllSubtasks()
- * 
  * @param {string} i - instead of i
  * @param {string} subtask - subtask instead of i
  * @returns 
