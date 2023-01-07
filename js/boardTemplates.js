@@ -52,7 +52,7 @@ function addTaskToKanbanHTML(element) { // element = task[0] or task[1] only fil
 function displayClickedTaskHTML(id, actualSector) {
     return document.getElementById('c-t-window').innerHTML = /*html*/`
 
-    <img src="../img/edit-icon.png" class="c-t-edit-button" onclick="editClickedTask()">
+    <img src="../img/edit-icon.png" class="c-t-edit-button" onclick="editClickedTask(${id})">
 
     <div class="c-t-first-row"> 
         <div class="c-t-category" id="c-t-category"> 
@@ -165,10 +165,9 @@ function createSubtasksHTML(id, i, checked, arrayOfSubtasks) {
 /** HTML function to create the editMenu from clickedTask
  * 
  */
-function editClickedTask() {
+function editClickedTask(id) {
     document.getElementById('c-t-window').innerHTML = /*html*/`
     <form onsubmit="getNewValueFromEditedTask(); return false;">
-
         <div class="c-t-exit-arrow-edit" onclick="displayClickedTask(currentClickedTask)"> 
             <img src="../img/black-back-arrow.png"> 
         </div> 
@@ -273,6 +272,22 @@ function editClickedTask() {
     <form> 
     `;
     document.getElementById("c-t-date-edit").valueAsDate = new Date();
+    document.getElementById("c-t-title-edit").value = downloadedTasks[id].title;
+    document.getElementById("c-t-description-edit").value = downloadedTasks[id].description;
+    document.getElementById("c-t-date-edit").value = downloadedTasks[id].dueDate;
+    // let urgent = document.getElementById('prio-urgent-c-t-edit');
+    // let medium = document.getElementById('prio-medium-c-t-edit');
+    // let low = document.getElementById('prio-low-c-t-edit');
+    // if (urgent.classList.contains('bg-orange'))
+    //     downloadedTasks[id].prio = 'Urgent';
+    // if(downloadedTasks[id].prio = 'Urgent') {
+    //     urgent.classList.add('bg-orange');
+
+    // }
+    // if (medium.classList.contains('bg-yellow'))
+    //     downloadedTasks[id].prio = 'Medium';
+    // if (low.classList.contains('bg-green'))
+    //     downloadedTasks[id].prio = 'Low';
 }
 
 

@@ -135,18 +135,20 @@ function getNewValueFromEditedTask() {
     let newStage = liStage;
     addSubtaskJSON();
 
-    downloadedTasks[currentClickedTask]['title'] = newTitle;
-    downloadedTasks[currentClickedTask]['description'] = newDescription;
-    checkIfDateEmpty(newDate);
-    downloadedTasks[currentClickedTask]['assingedTo'] = editedNames;
-    if (newStage)
-        downloadedTasks[currentClickedTask]['category'] = newStage;
-    downloadedTasks[currentClickedTask]["subtasks"] = substasksJSON;
-    editedNames = []; // clears array for new edit 
-    let id = currentClickedTask;
-    saveNewOnServer();
-    displayClickedTask(id);
-    displayAllTasks();
+    if (downloadedTasks.length >= 1) {
+        downloadedTasks[currentClickedTask]['title'] = newTitle;
+        downloadedTasks[currentClickedTask]['description'] = newDescription;
+        checkIfDateEmpty(newDate);
+        downloadedTasks[currentClickedTask]['assingedTo'] = editedNames;
+        if (newStage)
+            downloadedTasks[currentClickedTask]['category'] = newStage;
+        downloadedTasks[currentClickedTask]["subtasks"] = substasksJSON;
+        editedNames = []; // clears array for new edit 
+        let id = currentClickedTask;
+        saveNewOnServer();
+        displayClickedTask(id);
+        displayAllTasks();
+    }
 }
 
 
@@ -167,10 +169,22 @@ function checkIfDateEmpty(newDate) {
  * 
  */
 function deleteTask() {
+    deleteRequiredFromInput();
     downloadedTasks.splice(currentClickedTask, 1);
     saveNewOnServer();
     displayAllTasks();
     hideClickedTask();
+    location.reload();
+}
+
+
+/**
+ * required will set false in the input fields to delete the task without an error
+ */
+function deleteRequiredFromInput() {
+    document.getElementById('c-t-title-edit').required = false;
+    document.getElementById('c-t-description-edit').required = false;
+    document.getElementById('hidden-contact-input').required = false;
 }
 
 
