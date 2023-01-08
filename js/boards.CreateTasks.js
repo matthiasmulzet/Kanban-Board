@@ -4,7 +4,7 @@
  * 
  * @param NumberOfCurrentTasks -// is needed to differ between the tasks and to assign the colors to the tasks
  */
- function displayAllTasks(search) {
+function displayAllTasks(search) {
     tasksOverview[0]['tasksOnBoard'] = downloadedTasks.length;
     NumberOfCurrentTasks = 0;
     existTasks = 0;
@@ -105,8 +105,6 @@ function createTask(element, category) {
 }
 
 
-
-
 /** creates the divs for assignedContacts view on Boardsite
  * 
  * @param {string} element - hands over from display function - contains currently task like 
@@ -115,15 +113,12 @@ function createTask(element, category) {
  * @param {number} x  -created to prevent more than 3 assigned contacts being created on the board site
  * 
  */
- function createAssignedContacsOnBoard(element) {
+function createAssignedContacsOnBoard(element) {
     document.getElementById(`assigned-employees-board-${element['id']}`).innerHTML = '';
-
     let x = element['assingedTo'].length;
     let pixels = 0;
-
-    if (x > 3) {
+    if (x > 3)
         x = 2;
-    }
     else {
         for (i = 0; i <= x - 1; i++) {
             createAssignedContacsOnBoardHTML(element, pixels);
@@ -138,7 +133,7 @@ function createTask(element, category) {
  * 
  * @param {array} element -  contains id from currently processed task
  */
- function displayImportanceStatusBoard(element) {
+function displayImportanceStatusBoard(element) {
     let importanceId = document.getElementById(`importance-id-${element['id']}`);
     let white = '';
     displayImportanceStatus(element, importanceId, white);
@@ -152,17 +147,13 @@ function createTask(element, category) {
  * @param {string} importanceId - contains id to get to wished idElement
  * @param {string} white - on board view symbols are not white, on clickedTask view they are 
  */
- function displayImportanceStatus(element, importanceId, white) {
-
-    if (element['prio'] == 'Urgent') {
+function displayImportanceStatus(element, importanceId, white) {
+    if (element['prio'] == 'Urgent')
         importanceId.src = `../img/arrow_urgent${white}.svg`;
-    }
-    if (element['prio'] == 'Medium') {
+    if (element['prio'] == 'Medium')
         importanceId.src = `../img/medium${white}.svg`;
-    }
-    if (element['prio'] == 'Low') {
+    if (element['prio'] == 'Low')
         importanceId.src = `../img/arrow_low${white}.svg`;
-    }
 }
 
 
@@ -170,14 +161,11 @@ function createTask(element, category) {
  * 
  * @param {array} element  - contains array path to current processing task 
  */
- function createProgressbar(element) {
-    if (element['subtasks'].length == 0) {
+function createProgressbar(element) {
+    if (element['subtasks'].length == 0)
         document.getElementById(`progress-section-${element['id']}`).innerHTML = '';
-    }
-    else {
+    else
         calculateProgressBar(element);
-    }
-
 }
 
 

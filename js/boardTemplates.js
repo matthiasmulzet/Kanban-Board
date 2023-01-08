@@ -167,7 +167,7 @@ function createSubtasksHTML(id, i, checked, arrayOfSubtasks) {
  */
 function editClickedTask(id) {
     document.getElementById('c-t-window').innerHTML = /*html*/`
-    <form onsubmit="getNewValueFromEditedTask(); return false;">
+    <form onsubmit="getNewValueFromEditedTask()">
         <div class="c-t-exit-arrow-edit" onclick="displayClickedTask(currentClickedTask)"> 
             <img src="../img/black-back-arrow.png"> 
         </div> 
@@ -259,7 +259,7 @@ function editClickedTask(id) {
         </div>
 
         <div class="c-t-remove-ok-buttons"> 
-            <button class="c-t-delete-edit-button" onclick="deleteTask()" >
+            <button class="c-t-delete-edit-button" type="button" onclick="deleteTask()" >
                 <span> Delete Task </span> 
                 <img src="../img/delete-icon.png">
             </button>
@@ -271,24 +271,9 @@ function editClickedTask(id) {
         </div>
     <form> 
     `;
-    document.getElementById("c-t-date-edit").valueAsDate = new Date();
-    document.getElementById("c-t-title-edit").value = downloadedTasks[id].title;
-    document.getElementById("c-t-description-edit").value = downloadedTasks[id].description;
-    document.getElementById("c-t-date-edit").value = downloadedTasks[id].dueDate;
-    // let urgent = document.getElementById('prio-urgent-c-t-edit');
-    // let medium = document.getElementById('prio-medium-c-t-edit');
-    // let low = document.getElementById('prio-low-c-t-edit');
-    // if (urgent.classList.contains('bg-orange'))
-    //     downloadedTasks[id].prio = 'Urgent';
-    // if(downloadedTasks[id].prio = 'Urgent') {
-    //     urgent.classList.add('bg-orange');
-
-    // }
-    // if (medium.classList.contains('bg-yellow'))
-    //     downloadedTasks[id].prio = 'Medium';
-    // if (low.classList.contains('bg-green'))
-    //     downloadedTasks[id].prio = 'Low';
+    setTaskInfosFromDownlaodedTasks(id);
 }
+
 
 
 /** HTML function to generate the profilpicture on board view for every task

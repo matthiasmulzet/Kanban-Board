@@ -77,8 +77,6 @@ function createAssignedContacs(id) {
 }
 
 
-
-
 /** function checks if checkbox needs to display checked or not and calls function to create subtasks html
  * 
  * @param {number} id - contains id of current clicked task 
@@ -86,15 +84,11 @@ function createAssignedContacs(id) {
  */
 function CheckCheckboxandCreateSubtasks(id, arrayOfSubtasks) {
     for (let i = 0; i < arrayOfSubtasks.length; i++) {
-
         let checked = '';
-
-        if (arrayOfSubtasks[i]['checked'] === 'true') {
+        if (arrayOfSubtasks[i]['checked'] === 'true')
             checked = 'checked="true"'
-        }
-        else {
+        else
             checked = '';
-        }
         createSubtasksHTML(id, i, checked, arrayOfSubtasks);
     }
 }
@@ -124,7 +118,6 @@ function createSubtasks(id) {
 
 
 
-
 /** function gets the new value typed in the editMenu from clicked task  
  * 
  */
@@ -133,25 +126,28 @@ function getNewValueFromEditedTask() {
     let newDescription = document.getElementById('c-t-description-edit').value;
     let newDate = document.getElementById('c-t-date-edit').value;
     let newStage = liStage;
-    addSubtaskJSON();
-
+    if (subtasks.length >= 1)
+        addSubtaskJSON();
     if (downloadedTasks.length >= 1) {
-        downloadedTasks[currentClickedTask]['title'] = newTitle;
-        downloadedTasks[currentClickedTask]['description'] = newDescription;
-        checkIfDateEmpty(newDate);
-        downloadedTasks[currentClickedTask]['assingedTo'] = editedNames;
-        if (newStage)
-            downloadedTasks[currentClickedTask]['category'] = newStage;
-        downloadedTasks[currentClickedTask]["subtasks"] = substasksJSON;
+        setTaskInfos(newTitle, newDescription, newDate, newStage);
         editedNames = []; // clears array for new edit 
-        let id = currentClickedTask;
-        saveNewOnServer();
-        displayClickedTask(id);
-        displayAllTasks();
     }
+    let id = currentClickedTask;
+    saveNewOnServer();
+    displayClickedTask(id);
+    displayAllTasks();
 }
 
 
+function setTaskInfos(newTitle, newDescription, newDate, newStage) {
+    downloadedTasks[currentClickedTask]['title'] = newTitle;
+    downloadedTasks[currentClickedTask]['description'] = newDescription;
+    checkIfDateEmpty(newDate);
+    downloadedTasks[currentClickedTask]['assingedTo'] = editedNames;
+    if (newStage)
+        downloadedTasks[currentClickedTask]['category'] = newStage;
+    downloadedTasks[currentClickedTask]["subtasks"] = substasksJSON;
+}
 
 
 /** function sets new selected date or not, if no new date was selected
@@ -159,9 +155,8 @@ function getNewValueFromEditedTask() {
  * @param {string} newDate - contains new selected Date from edit menu 
  */
 function checkIfDateEmpty(newDate) {
-    if (!newDate == '') {
+    if (!newDate == '')
         downloadedTasks[currentClickedTask]['dueDate'] = newDate;
-    }
 }
 
 
@@ -196,6 +191,11 @@ function markedPrioCT(prio) {
     let urgentID = document.getElementById('prio-urgent-c-t-edit');
     let mediumID = document.getElementById('prio-medium-c-t-edit')
     let lowID = document.getElementById('prio-low-c-t-edit');
+    showSelectedPrio(urgentID, mediumID, lowID, prio);
+}
+
+
+function showSelectedPrio(urgentID, mediumID, lowID, prio) {
     if (prio == 'Urgent') {
         downloadedTasks[currentClickedTask]['prio'] = prio;
         selectUrgentEdit(urgentID, mediumID, lowID);
@@ -225,6 +225,7 @@ function selectUrgentEdit(urgentID, mediumID, lowID) {
     setStatsBack(mediumID);
 }
 
+
 /** function highlighting prio in edit task view
  */
 function selectMediumEdit(urgentID, mediumID, lowID) {
@@ -236,6 +237,7 @@ function selectMediumEdit(urgentID, mediumID, lowID) {
     setStatsBack(urgentID);
     setStatsBack(lowID);
 }
+
 
 /** function highlighting prio in edit task view
  */
@@ -250,8 +252,6 @@ function selectLowEdit(urgentID, mediumID, lowID) {
 }
 
 
-
-
 /** sets clicked prios css classes in edited task view
  * 
  * @param {string} prioID - contains getElementID from specific prio
@@ -260,6 +260,7 @@ function setClickedStats(prioID) {
     prioID.style.fontWeight = "bold";
     prioID.style.color = "white";
 }
+
 
 /** sets clicked prios back in edited task view
  * 
@@ -279,14 +280,10 @@ function setStatsBack(prioID) {
 function updateCheckboxStatus(i) {
     let checkbox = document.getElementById(`subtask-id-${currentClickedTask}-${i}`);
     let arrayOfSubtasks = downloadedTasks[currentClickedTask]['subtasks'];
-
-    if (checkbox.checked) {
+    if (checkbox.checked)
         arrayOfSubtasks[i]['checked'] = 'true';
-    }
-    else {
+    else
         arrayOfSubtasks[i]['checked'] = 'false';
-    }
-
     saveNewOnServer();
     displayAllTasks();
 }
@@ -298,4 +295,14 @@ function updateCheckboxStatus(i) {
 function hideClickedTask() {
     document.getElementById('open-clicked-task').style.display = "none";
     document.getElementById('c-t-window').style.display = "none";
+}
+
+
+function setTaskInfosFromDownlaodedTasks(id) {
+    document.getElementById("c-t-date-edit").valueAsDate = new Date();
+    document.getElementById("c-t-title-edit").value = downloadedTasks[id].title;
+    document.getElementById("c-t-description-edit").value = downloadedTasks[id].description;
+    document.getElementById("c-t-date-edit").value = downloadedTasks[id].dueDate;
+    let prioTask = downloadedTasks[id].prio;
+    markedPrioCT(prioTask);
 }
