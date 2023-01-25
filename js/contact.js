@@ -11,7 +11,7 @@ let backgroundColor = [];
  */
 async function initContacs() {
     await includeHTML();
-    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.at/smallest_backend_ever-master");
     await downloadFromServer();
     contact = JSON.parse(backend.getItem('contact')) || [];
     alphabet = JSON.parse(backend.getItem('alphabet')) || [];

@@ -42,7 +42,7 @@ function updateStatus() {
  * 
  */
 async function loadTasksFromServerSummary() {
-    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.at/smallest_backend_ever-master");
     await downloadFromServer();
     tasksOverview = await JSON.parse(backend.getItem('tasksOverview')) || [];
     downloadedTasks = await JSON.parse(backend.getItem('downloadedTasks')) || [];

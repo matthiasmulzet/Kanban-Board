@@ -8,7 +8,7 @@ let resetPasswordEmail;
  * load the URL and then the registered users from the backend
  */
 async function initLogin() {
-    setURL("https://matthias-mulzet.developerakademie.net/Join/smallest_backend_ever-master");
+    setURL("https://matthias-mulzet.at/smallest_backend_ever-master");
     await downloadFromServer();
     users = await JSON.parse(backend.getItem('users')) || [];
     pageOpenerAnimation();
@@ -305,7 +305,7 @@ function setAction(form) {
     }
 
     sendMailForgotPassword();
-    form.action = "https://matthias-mulzet.developerakademie.net/Join/send_mail.php";
+    form.action = "https://matthias-mulzet.at/send_mail.php";
     form.method = "post";
 }
 
