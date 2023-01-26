@@ -215,7 +215,7 @@ function forwardToBoard() {
 
 
 async function loadTasksFromServer() {
-    setURL("https://matthias-mulzet.at/smallest_backend_ever-master");
+    setURL("https://join.matthias-mulzet.at/smallest_backend_ever-master");
     await downloadFromServer();
     downloadedTasks = JSON.parse(backend.getItem('downloadedTasks')) || [];
 }
@@ -225,7 +225,7 @@ async function loadTasksFromServer() {
  * save function on the server
  */
 async function saveOnServer() {
-    setURL("https://matthias-mulzet.at/smallest_backend_ever-master");
+    setURL("https://join.matthias-mulzet.at/smallest_backend_ever-master");
     await backend.setItem('downloadedTasks', JSON.stringify(downloadedTasks));
 }
 

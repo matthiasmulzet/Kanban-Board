@@ -3,7 +3,7 @@
 
 ########### CONFIG ###############
 $email = $_POST['email'];
-$link = 'https://matthias-mulzet.at/html/reset_password.html?'.$email;
+$link = 'https://join.matthias-mulzet.at/html/reset_password.html?'.$email;
 $redirect = 'html/login.html';
 
 ########### CONFIG END ###########
