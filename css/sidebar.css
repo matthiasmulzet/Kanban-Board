@@ -13,10 +13,6 @@ body {
     display: none !important;
 }
 
-.responsive-d-none-990px {}
-
-.responsive-d-none-770px {}
-
 header {
     position: fixed;
     top: 0;

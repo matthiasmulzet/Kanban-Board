@@ -164,12 +164,21 @@ function checkIfDateEmpty(newDate) {
  * 
  */
 function deleteTask() {
-    deleteRequiredFromInput();
+    if (deleteCallFromOverviewNotEdit()) {
+        deleteRequiredFromInput();
+    }
     downloadedTasks.splice(currentClickedTask, 1);
     saveNewOnServer();
     displayAllTasks();
     hideClickedTask();
     location.reload();
+}
+
+/**
+ * if delete Call comes from overview task and not from edit task the following id == null
+ */
+function deleteCallFromOverviewNotEdit() {
+    return document.getElementById('c-t-title-edit') != null
 }
 
 

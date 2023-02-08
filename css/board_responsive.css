@@ -113,7 +113,7 @@
         padding-top: 90px;
         top: 59%;
         background-color: #F6F7F8;
-        gap: 10px;
+        gap: 110px;
     }
 
     .clicked-task-bg {
@@ -169,6 +169,10 @@
     .c-t-exit-arrow-edit {
         width: 90%;
         margin-bottom: 0px;
+    }
+
+    .delete-edit-task-container {
+        width: 80%;
     }
 }
 

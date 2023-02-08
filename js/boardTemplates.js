@@ -52,74 +52,84 @@ function addTaskToKanbanHTML(element) { // element = task[0] or task[1] only fil
 function displayClickedTaskHTML(id, actualSector) {
     return document.getElementById('c-t-window').innerHTML = /*html*/`
 
-    <img src="../img/edit-icon.png" class="c-t-edit-button" onclick="editClickedTask(${id})">
+    <div class="split-c-t-window-divs">
+        <div class="c-t-first-row"> 
+            <div class="c-t-category" id="c-t-category"> 
+                <span id="c-t-category-html">${actualSector}</span>
+            </div>
 
-    <div class="c-t-first-row"> 
-        <div class="c-t-category" id="c-t-category"> 
-            <span id="c-t-category-html">${actualSector}</span>
+            <div class="c-t-exit-arrow" onclick="hideClickedTask()"> 
+                <img src="../img/black-back-arrow.png"> 
+            </div> 
+        </div> 
+
+        <div class="c-t-title" >
+            <b>  ${downloadedTasks[id]['title']} </b>
         </div>
 
-        <div class="c-t-exit-arrow" onclick="hideClickedTask()"> 
-            <img src="../img/black-back-arrow.png"> 
+        <div class="c-t-description">
+            <p> 
+                ${downloadedTasks[id]['description']} 
+            </p>
+        </div>
+
+        <div id="subtask-section" class="c-t-subtask-section"> 
+            <div class="c-t-infos"> 
+                <span>
+                    <b> 
+                        Subtasks:
+                    </b>
+                </span>
+            </div>
+
+            <div class="c-t-subtasks" id="subtasks"> 
+            </div> 
         </div> 
-    </div> 
 
-    <div class="c-t-title" >
-        <b>  ${downloadedTasks[id]['title']} </b>
-    </div>
-
-    <div class="c-t-description">
-        <p> 
-            ${downloadedTasks[id]['description']} 
-        </p>
-    </div>
-
-    <div id="subtask-section" class="c-t-subtask-section"> 
         <div class="c-t-infos"> 
             <span>
-                <b> 
-                    Subtasks:
+                <b>
+                    Due date:
+                </b>
+            </span>
+            <span class="c-t-space"> 
+            ${downloadedTasks[id]['dueDate']}
+            </span> 
+        </div>
+
+        <div class="c-t-infos"> 
+            <span>
+                <b>
+                    Priority:
+                </b>
+            </span>
+            <span class="c-t-space priority-box" id="priority-box-c-t"> 
+                ${downloadedTasks[id]['prio']}
+                <img src="../img/arrow_urgent_white.svg" class="c-t-priority-icon" id="importance-id-c-t-${currentClickedTask}"> 
+            </span> 
+        </div>
+
+        <div class="c-t-infos"> 
+            <span>
+                <b>
+                    Assigned to:
                 </b>
             </span>
         </div>
 
-        <div class="c-t-subtasks" id="subtasks"> 
-        </div> 
-    </div> 
-
-    <div class="c-t-infos"> 
-        <span>
-            <b>
-                Due date:
-            </b>
-        </span>
-        <span class="c-t-space"> 
-        ${downloadedTasks[id]['dueDate']}
-        </span> 
+        <div class="c-t-assignedTo" id="c-t-assignedTo"></div> 
     </div>
 
-    <div class="c-t-infos"> 
-        <span>
-            <b>
-                Priority:
-            </b>
-        </span>
-        <span class="c-t-space priority-box" id="priority-box-c-t"> 
-            ${downloadedTasks[id]['prio']}
-            <img src="../img/arrow_urgent_white.svg" class="c-t-priority-icon" id="importance-id-c-t-${currentClickedTask}"> 
-        </span> 
-    </div>
+    <div>
+        <div class="delete-edit-task-container">
+            <button class="c-t-delete-edit-button" type="button" onclick="deleteTask()" >
+                    <span> Delete Task </span> 
+                    <img src="../img/delete-icon.png">
+            </button>
 
-    <div class="c-t-infos"> 
-        <span>
-            <b>
-                Assigned to:
-            </b>
-        </span>
+            <img src="../img/edit-icon.png" class="c-t-edit-button" onclick="editClickedTask(${id})">
+        </div>
     </div>
-
-    <div class="c-t-assignedTo" id="c-t-assignedTo">
-    </div> 
 `;
 }
 
