@@ -267,7 +267,7 @@ h1 {
 */
 .clicked-task-bg {
     position: fixed;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.6);
     top: 0;
     bottom: 0;
     right: 0;
@@ -303,6 +303,7 @@ h1 {
     overflow: auto;
     justify-content: flex-start;
     gap: 190px;
+    box-shadow: 0 0 14px 3px rgb(0 0 0 / 15%);
 }
 
 
